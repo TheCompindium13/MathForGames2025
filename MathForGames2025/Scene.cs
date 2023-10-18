@@ -13,7 +13,7 @@ namespace MathForGames2025
 
         }
 
-        public virtual void Update()
+        public virtual void Update(float deltaTime)
         {
 
         }

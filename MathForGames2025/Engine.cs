@@ -4,68 +4,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Raylib_cs;
+using System.Diagnostics;
 
 namespace MathForGames2025
 {
     internal class Engine
     {
+        
+        private const int _screenwidth = 800;
+        private const int _screenheight = 450;
         private static bool _applicationShouldClose;
         private static Icon[,] _buffer;
         private TestScene _testScene;
+        private Stopwatch _stopwatch = new Stopwatch();
 
         private void Start()
         {
+            Raylib.InitWindow(_screenwidth, _screenheight, "MATH FOR GAMES 2025");
+            Raylib.SetTargetFPS(200);
+            _stopwatch.Start();
             _testScene = new TestScene();
             _buffer = new Icon[10, 10];
             _testScene.Start();
         }
 
         public static void Render(Icon icon, Vector2 position)
-        {  
-            if (position.Y >= _buffer.GetLength(0) || position.Y < 0)
-            {
-                return;
-            }
-            else if (position.X >= _buffer.GetLength(1) || position.X < 0)
-            {
-                return;
-            }
-
-            _buffer[(int)position.Y, (int)position.X] = icon;
+        {
+            Raylib.DrawText(icon.Symbol, (int)position.X, (int)position.Y, 50, icon.RaylibColor);
         }
 
         private void Draw()
         {
-            Console.Clear();
-            _buffer = new Icon[10, 10];
+            
+            Raylib.BeginDrawing();
+
+            Raylib.ClearBackground(Color.MAGENTA);
 
             _testScene.Draw();
 
-            for (int y = 0; y < _buffer.GetLength(0); y++)
-            {
-                for (int x = 0; x < _buffer.GetLength(1); x++)
-                {
-                    if (_buffer[y, x].Symbol == '\0')
-                    {
-                        _buffer[y, x].Symbol = '+';
-                    }
-
-                    Console.ForegroundColor = _buffer[y, x].Color;
-                    Console.Write(_buffer[y, x].Symbol);
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                Console.WriteLine();
-            }
+            Raylib.EndDrawing();
         }
 
-        private void Update()
+        private void Update(float deltaTime)
         {
-            _testScene.Update();
+            _testScene.Update(deltaTime);
         }
 
         private void End()
         {
             _testScene.End();
+            Raylib.CloseWindow();
         }
 
         public static char GetInput()
@@ -81,11 +70,24 @@ namespace MathForGames2025
         public void Run()
         {
             Start();
+            float currentTime = 0f;
+            float lastTime = 0f;
+            float deltaTime = 0f;
 
-            while (!_applicationShouldClose)
+            while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
+                Console.WriteLine(new Vector2(2,3).GetMagnitude());
+                return;
+                currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
+
+                Console.WriteLine(currentTime);
+
+                deltaTime = currentTime - lastTime;
+                
                 Draw();
-                Update();
+                Update(deltaTime);
+
+                lastTime = currentTime;
             }
 
             End();

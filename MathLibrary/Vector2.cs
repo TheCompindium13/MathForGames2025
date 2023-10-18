@@ -23,6 +23,15 @@
             _y = y;
         }
 
+        public float GetMagnitude()
+        {
+
+            float result = MathF.Sqrt(X * X + Y * Y);
+
+
+            return result;
+            
+        }
         /// <summary>
         /// Create overloaded operators for subtracting a vector 
         /// from another vector,
@@ -34,23 +43,22 @@
         /// and change the position based on player input.
         /// </summary>
 
-        public static Vector2 operator +(Vector2 lhs, Vector2 rhs)
+        public static Vector2 operator + (Vector2 lhs, Vector2 rhs)
         {
             return new Vector2(lhs.X + rhs.X, lhs.Y + rhs.Y);
         }
 
-
-        public static Vector2 operator -(Vector2 lhs, Vector2 rhs)
+        public static Vector2 operator - (Vector2 lhs, Vector2 rhs)
         {
             return new Vector2(lhs.X - rhs.X, lhs.Y - rhs.Y);
         }
 
-        public static Vector2 operator *(Vector2 lhs, float scalar)
+        public static Vector2 operator * (Vector2 lhs, float scalar)
         {
             return new Vector2(lhs.X * scalar, lhs.Y * scalar);
         }
 
-        public static Vector2 operator /(Vector2 lhs, float scalar)
+        public static Vector2 operator / (Vector2 lhs, float scalar)
         {
             return new Vector2(lhs.X * scalar, lhs.Y * scalar);
         }

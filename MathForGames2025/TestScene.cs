@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathLibrary;
+using Raylib_cs;
 
 namespace MathForGames2025
 {
@@ -16,7 +17,7 @@ namespace MathForGames2025
             base.Start();
             Vector2 startPosition = new Vector2(0, 0);
 
-            Icon playerIcon = new Icon { Color = ConsoleColor.Blue, Symbol = '@' };
+            Icon playerIcon = new Icon { RaylibColor = Color.YELLOW, Symbol = "H" + "a" + "i" + "d" + "o" + "n" + " " + "C" + "o" + "s" + "s" + "e" + "'"};
 
             _testActor = new Player(playerIcon, startPosition);
 
@@ -29,10 +30,10 @@ namespace MathForGames2025
             _testActor.Draw();
         }
 
-        public override void Update()
+        public override void Update(float deltaTime)
         {
-            base.Update();
-            _testActor.Update();
+            base.Update(deltaTime);
+            _testActor.Update(deltaTime);
         }
     }
 }

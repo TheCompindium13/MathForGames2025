@@ -5,21 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathLibrary;
+using Raylib_cs;
 
 namespace MathForGames2025
 {
     struct Icon
     {
-        private char _symbol;
-        private ConsoleColor _color;
+        private string _symbol;
+        private Color _color;
 
-        public char Symbol
+        public string Symbol
         {
             get { return _symbol; }
             set { _symbol = value; }    
         }
 
-        public ConsoleColor Color
+        public Color RaylibColor
         {
             get { return _color; }
             set { _color = value; }
@@ -48,7 +49,7 @@ namespace MathForGames2025
 
         }
 
-        public virtual void Update()
+        public virtual void Update(float deltaTime)
         {
         }
 
