@@ -22,15 +22,25 @@
             _x = x;
             _y = y;
         }
-
-        public float GetMagnitude()
+        /// <summary>
+        /// change the size of the vector to have a length of 1
+        /// </summary>
+        public void normalize()
         {
 
-            float result = MathF.Sqrt(X * X + Y * Y);
-
-
-            return result;
-            
+        }
+        /// <summary>
+        /// divide the vector by the amplitude to get a vector with an amplitude of 1
+        /// </summary>
+        /// <returns>
+        /// </returns> normalized vector that points in same direction
+        public Vector2 GetNormalized()
+        {
+            return new Vector2();
+        }
+        public float GetMagnitude()
+        {
+            return MathF.Sqrt(X * X + Y * Y);
         }
         /// <summary>
         /// Create overloaded operators for subtracting a vector 

@@ -74,9 +74,10 @@ namespace MathForGames2025
             float lastTime = 0f;
             float deltaTime = 0f;
 
+            
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
-                Console.WriteLine(new Vector2(2,3).GetMagnitude());
+                Console.WriteLine(new Vector2(5,7).GetNormalized());
                 return;
                 currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
 

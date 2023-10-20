@@ -17,7 +17,7 @@ namespace MathForGames2025
             base.Start();
             Vector2 startPosition = new Vector2(0, 0);
 
-            Icon playerIcon = new Icon { RaylibColor = Color.YELLOW, Symbol = "H" + "a" + "i" + "d" + "o" + "n" + " " + "C" + "o" + "s" + "s" + "e" + "'"};
+            Icon playerIcon = new Icon { RaylibColor = Color.YELLOW, Symbol = "Haidon" + " " + "Cosse'"};
 
             _testActor = new Player(playerIcon, startPosition);
 
