@@ -31,6 +31,7 @@ namespace MathForGames2025
     {
         private Icon _icon;
         private Vector2 _position;
+        private Vector2 _facing;
 
         public Vector2 Position
         {

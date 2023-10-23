@@ -18,6 +18,9 @@ namespace MathForGames2025
         private static Icon[,] _buffer;
         private TestScene _testScene;
         private Stopwatch _stopwatch = new Stopwatch();
+       
+        
+
 
         private void Start()
         {
@@ -26,7 +29,9 @@ namespace MathForGames2025
             _stopwatch.Start();
             _testScene = new TestScene();
             _buffer = new Icon[10, 10];
+
             _testScene.Start();
+            
         }
 
         public static void Render(Icon icon, Vector2 position)
@@ -49,6 +54,7 @@ namespace MathForGames2025
         private void Update(float deltaTime)
         {
             _testScene.Update(deltaTime);
+            
         }
 
         private void End()
@@ -69,6 +75,14 @@ namespace MathForGames2025
 
         public void Run()
         {
+            Vector2 test = new Vector2(10, 10);
+
+            Vector2 test3 = new Vector2(10, 10);
+
+            Vector2 test2 = test.GetNormalized();
+
+            float magnitude = test2.GetMagnitude();
+
             Start();
             float currentTime = 0f;
             float lastTime = 0f;
@@ -77,8 +91,13 @@ namespace MathForGames2025
             
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
-                Console.WriteLine(new Vector2(5,7).GetNormalized());
-                return;
+                Console.WriteLine(Vector2.DotProduct(test, test3));
+                test.Normalize();
+
+
+                Console.WriteLine(test.GetMagnitude());
+                Console.WriteLine(magnitude);
+
                 currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
 
                 Console.WriteLine(currentTime);

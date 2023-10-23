@@ -4,6 +4,7 @@
     {
         private float _x;
         private float _y;
+        
 
         public float X
         {
@@ -25,9 +26,17 @@
         /// <summary>
         /// change the size of the vector to have a length of 1
         /// </summary>
-        public void normalize()
+        public void Normalize()
         {
+            float Magnitude = GetMagnitude();
 
+            if (Magnitude == 0)
+            {
+                return;
+            }
+
+            X /= Magnitude;
+            Y /= Magnitude;
         }
         /// <summary>
         /// divide the vector by the amplitude to get a vector with an amplitude of 1
@@ -36,7 +45,25 @@
         /// </returns> normalized vector that points in same direction
         public Vector2 GetNormalized()
         {
-            return new Vector2();
+            float Magnitude = GetMagnitude();
+
+            if (Magnitude == 0)
+            {
+                return new Vector2();
+            }
+
+            return new Vector2(X / Magnitude, Y / Magnitude);
+            
+        }
+        public static float DotProduct(Vector2 a, Vector2 b)
+        {
+            float dot = a.X * b.X + a.Y * b.Y;
+            return dot;
+        }
+
+        public static float GetDistance(Vector2 a, Vector2 b)
+        {
+            return;
         }
         public float GetMagnitude()
         {
@@ -70,7 +97,7 @@
 
         public static Vector2 operator / (Vector2 lhs, float scalar)
         {
-            return new Vector2(lhs.X * scalar, lhs.Y * scalar);
+            return new Vector2(lhs.X / scalar, lhs.Y / scalar);
         }
     }
 }
