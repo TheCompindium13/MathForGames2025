@@ -12,18 +12,20 @@ namespace MathForGames2025
     {
         private Player _testActor;
         private Enemy _testenemy;
+        
 
         public override void Start()
         {
             base.Start();
             Vector2 startPosition = new Vector2(0, 0);
+            Vector2 enemystartPosition = new Vector2(400, 200);    
 
-            Icon playerIcon = new Icon { RaylibColor = Color.YELLOW, Symbol = "Haidon" + " " + "Cosse'"};
+            Icon playerIcon = new Icon { RaylibColor = Color.YELLOW, Symbol = "H"};
             Icon enemyIcon = new Icon { RaylibColor = Color.RED, Symbol = "R" };
 
 
             _testActor = new Player(playerIcon, startPosition);
-            _testenemy = new Enemy(_testActor, enemyIcon, startPosition);
+            _testenemy = new Enemy(_testActor, enemyIcon, enemystartPosition, .3f, 300f);
 
             _testActor.Start();
             _testenemy.Start();

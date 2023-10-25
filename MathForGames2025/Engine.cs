@@ -91,16 +91,22 @@ namespace MathForGames2025
             
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
-                Console.WriteLine(Vector2.DotProduct(test, test3));
+                Console.WriteLine("_________________________");
+                Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
+                Console.WriteLine("_________________________");
+                Console.WriteLine("Get Distance: " + Vector2.GetDistance(test, test3));
+                Console.WriteLine("_________________________");
                 test.Normalize();
 
-
-                Console.WriteLine(test.GetMagnitude());
-                Console.WriteLine(magnitude);
+                Console.WriteLine("Test 1 Magnitude: " + test.GetMagnitude());
+                Console.WriteLine("_________________________");
+                Console.WriteLine("Test 2 Magnitude: " + magnitude);
+                Console.WriteLine("_________________________");
 
                 currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
 
-                Console.WriteLine(currentTime);
+                Console.WriteLine("Current Time: " + currentTime);
+                Console.WriteLine("|||||||||||||||||||||||||");
 
                 deltaTime = currentTime - lastTime;
                 

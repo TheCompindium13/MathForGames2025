@@ -63,7 +63,7 @@
 
         public static float GetDistance(Vector2 a, Vector2 b)
         {
-            return;
+            return (a - b).GetMagnitude();
         }
         public float GetMagnitude()
         {

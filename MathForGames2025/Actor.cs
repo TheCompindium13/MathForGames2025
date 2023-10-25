@@ -31,12 +31,18 @@ namespace MathForGames2025
     {
         private Icon _icon;
         private Vector2 _position;
-        private Vector2 _facing;
+        private Vector2 _facing = new Vector2(1,0);
 
         public Vector2 Position
         {
             get { return _position; }
             set { _position = value; }
+        }
+
+        public Vector2 Facing
+        {
+            get { return _facing; }
+            set { _facing = value; }
         }
 
         public Actor(Icon icon, Vector2 position)
@@ -62,6 +68,11 @@ namespace MathForGames2025
         public virtual void End()
         {
 
+        }
+        public Icon Actoricon
+        {
+            get { return _icon; }
+            set { _icon = value; }
         }
     }
 }

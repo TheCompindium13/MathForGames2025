@@ -60,25 +60,7 @@ namespace MathForGames2025
 
             Position += Velocity * deltaTime;
 
-            //This set of if statements wraps the player icon around to the other side
-            //------------------------------------------------------------------------
-            if (Position.X >= 800)
-            {
-                Position = new Vector2(0, Position.Y);
-            }
-            else if (Position.X <= -360)
-            {
-                Position = new Vector2(800, Position.Y);
-            }
-            if (Position.Y >= 450)
-            {
-                Position = new Vector2(Position.X, 0);
-            }
-            else if (Position.Y <= -47)
-            {
-                Position = new Vector2(Position.X, 450);
-            }
-            //------------------------------------------------------------------------
+            
         }
     }
 }
