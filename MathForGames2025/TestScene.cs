@@ -12,10 +12,12 @@ namespace MathForGames2025
     {
         private Player _testActor;
         private Enemy _testenemy;
-        
 
+
+        
         public override void Start()
         {
+            
             base.Start();
             Vector2 startPosition = new Vector2(0, 0);
             Vector2 enemystartPosition = new Vector2(400, 200);    
@@ -25,7 +27,7 @@ namespace MathForGames2025
 
 
             _testActor = new Player(playerIcon, startPosition);
-            _testenemy = new Enemy(_testActor, enemyIcon, enemystartPosition, .3f, 300f);
+            _testenemy = new Enemy(_testActor, enemyIcon, enemystartPosition, .3f, 100f);
 
             _testActor.Start();
             _testenemy.Start();

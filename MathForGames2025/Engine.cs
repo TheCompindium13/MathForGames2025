@@ -18,9 +18,35 @@ namespace MathForGames2025
         private static Icon[,] _buffer;
         private TestScene _testScene;
         private Stopwatch _stopwatch = new Stopwatch();
-       
+        
+        private int[] _original = new int[] { 1, 2, 3 };
         
 
+        public void addarrayitem(int item)
+        {
+            
+
+            Console.WriteLine("New Length: ");
+            Console.WriteLine("_________________________");
+            for (int i = 0; i < _original.Length; i++)
+            {
+                
+                Console.WriteLine(_original[i]);
+                int[] _temp = new int[4] { 1, 2, 3, item };
+                _temp
+                _original = _temp;
+
+
+            }
+
+        }
+        public void originalarraylength()
+        {
+            for (int i = 0; i < _original.Length; i++)
+            {
+                Console.WriteLine(_original[i]);
+            }
+        }
 
         private void Start()
         {
@@ -91,6 +117,12 @@ namespace MathForGames2025
             
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
+                Console.WriteLine("Original Length: ");
+                originalarraylength();
+                Console.WriteLine("_________________________");
+                Console.ReadLine();
+                addarrayitem(8);
+                addarrayitem(10);
                 Console.WriteLine("_________________________");
                 Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
                 Console.WriteLine("_________________________");
