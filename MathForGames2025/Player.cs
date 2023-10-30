@@ -52,6 +52,7 @@ namespace MathForGames2025
             {
                 _speed = 1000;
             }
+
             else
             {
                 _speed = 400;
@@ -59,7 +60,7 @@ namespace MathForGames2025
             Velocity = direction.GetNormalized() * _speed;
 
             Position += Velocity * deltaTime;
-
+            
             
         }
     }

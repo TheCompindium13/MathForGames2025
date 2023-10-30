@@ -16,53 +16,30 @@ namespace MathForGames2025
         private const int _screenheight = 450;
         private static bool _applicationShouldClose;
         private static Icon[,] _buffer;
-        private TestScene _testScene;
+        private static Scene _currentScene;
+        
         private Stopwatch _stopwatch = new Stopwatch();
         
         private int[] _original = new int[] { 1, 2, 3 };
-        
-
-        public void addarrayitem(int item)
-        {
-            
-
-            Console.WriteLine("New Length: ");
-            Console.WriteLine("_________________________");
-            for (int i = 0; i < _original.Length; i++)
-            {
-                
-                Console.WriteLine(_original[i]);
-                int[] _temp = new int[4] { 1, 2, 3, item };
-                _temp
-                _original = _temp;
-
-
-            }
-
-        }
-        public void originalarraylength()
-        {
-            for (int i = 0; i < _original.Length; i++)
-            {
-                Console.WriteLine(_original[i]);
-            }
-        }
-
         private void Start()
         {
             Raylib.InitWindow(_screenwidth, _screenheight, "MATH FOR GAMES 2025");
             Raylib.SetTargetFPS(200);
             _stopwatch.Start();
-            _testScene = new TestScene();
+            _currentScene = new TestScene();
             _buffer = new Icon[10, 10];
 
-            _testScene.Start();
+            _currentScene.Start();
             
         }
-
+        public static Scene GetCurrentScene()
+        {
+            return _currentScene;
+        }
         public static void Render(Icon icon, Vector2 position)
         {
             Raylib.DrawText(icon.Symbol, (int)position.X, (int)position.Y, 50, icon.RaylibColor);
+            Raylib.DrawCircle((int)position.X, (int)position.Y, 20, Color.GREEN);
         }
 
         private void Draw()
@@ -72,20 +49,20 @@ namespace MathForGames2025
 
             Raylib.ClearBackground(Color.MAGENTA);
 
-            _testScene.Draw();
-
+            _currentScene.Draw();
+            
             Raylib.EndDrawing();
         }
 
         private void Update(float deltaTime)
         {
-            _testScene.Update(deltaTime);
+            _currentScene.Update(deltaTime);
             
         }
 
         private void End()
         {
-            _testScene.End();
+            _currentScene.End();
             Raylib.CloseWindow();
         }
 
@@ -117,12 +94,7 @@ namespace MathForGames2025
             
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
-                Console.WriteLine("Original Length: ");
-                originalarraylength();
-                Console.WriteLine("_________________________");
-                Console.ReadLine();
-                addarrayitem(8);
-                addarrayitem(10);
+
                 Console.WriteLine("_________________________");
                 Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
                 Console.WriteLine("_________________________");

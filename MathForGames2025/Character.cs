@@ -34,6 +34,7 @@ namespace MathForGames2025
             //(Done) The enemy's facing should always be in the last direction they were moving in.
             
             Facing = Velocity.GetNormalized();
+
             //This set of if statements wraps the player icon around to the other side
             //------------------------------------------------------------------------
             if (Position.X >= 800)

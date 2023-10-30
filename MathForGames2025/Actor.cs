@@ -13,7 +13,6 @@ namespace MathForGames2025
     {
         private string _symbol;
         private Color _color;
-
         public string Symbol
         {
             get { return _symbol; }
@@ -32,6 +31,8 @@ namespace MathForGames2025
         private Icon _icon;
         private Vector2 _position;
         private Vector2 _facing = new Vector2(1,0);
+        private bool _started;
+        private Collider _collider;
 
         public Vector2 Position
         {
@@ -44,16 +45,23 @@ namespace MathForGames2025
             get { return _facing; }
             set { _facing = value; }
         }
-
+        public Collider AttachedCollider
+        {
+            get { return _collider; }
+            set { _collider = value; }
+        }
         public Actor(Icon icon, Vector2 position)
         {
             _icon = icon;
             _position = position;
         }
-
+        public bool Started
+        {
+            get { return _started; }
+        }
         public virtual void Start()
         {
-
+            _started = true;
         }
 
         public virtual void Update(float deltaTime)
@@ -68,6 +76,18 @@ namespace MathForGames2025
         public virtual void End()
         {
 
+        }
+        public virtual void OnCollision(Actor other)
+        {
+            if (other <= )
+        }
+        public bool CheckCollision(Actor other)
+        {
+            if (AttachedCollider == null || other.AttachedCollider == null)
+            {
+                return false;
+            }
+            return AttachedCollider.CheckCollision(other.AttachedCollider);
         }
         public Icon Actoricon
         {

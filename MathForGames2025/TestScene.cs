@@ -11,14 +11,14 @@ namespace MathForGames2025
     internal class TestScene : Scene
     {
         private Player _testActor;
-        private Enemy _testenemy;
+        private Enemy _testEnemy;
 
 
         
         public override void Start()
         {
             
-            base.Start();
+
             Vector2 startPosition = new Vector2(0, 0);
             Vector2 enemystartPosition = new Vector2(400, 200);    
 
@@ -27,24 +27,19 @@ namespace MathForGames2025
 
 
             _testActor = new Player(playerIcon, startPosition);
-            _testenemy = new Enemy(_testActor, enemyIcon, enemystartPosition, .3f, 100f);
+            _testEnemy = new Enemy(_testActor, enemyIcon, enemystartPosition, .3f, 100f);
 
-            _testActor.Start();
-            _testenemy.Start();
+            CircleCollider playercollider = new CircleCollider(20, _testActor);
+
+            _testActor.AttachedCollider = playercollider;
+
+            AddActor(_testEnemy);
+            AddActor(_testActor);
+
+            base.Start();
+
         }
 
-        public override void Draw()
-        {
-            base.Draw();
-            _testActor.Draw();
-            _testenemy.Draw();
-        }
 
-        public override void Update(float deltaTime)
-        {
-            base.Update(deltaTime);
-            _testActor.Update(deltaTime);
-            _testenemy.Update(deltaTime);
-        }
     }
 }
