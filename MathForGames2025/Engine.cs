@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Raylib_cs;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MathForGames2025
 {
@@ -17,7 +18,7 @@ namespace MathForGames2025
         private static bool _applicationShouldClose;
         private static Icon[,] _buffer;
         private static Scene _currentScene;
-        
+
         private Stopwatch _stopwatch = new Stopwatch();
         
         private int[] _original = new int[] { 1, 2, 3 };
@@ -75,9 +76,12 @@ namespace MathForGames2025
         {
             _applicationShouldClose = true;
         }
-
         public void Run()
         {
+            Matrix3 testa = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
+            Matrix3 testb = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+
             Vector2 test = new Vector2(10, 10);
 
             Vector2 test3 = new Vector2(10, 10);
@@ -85,15 +89,18 @@ namespace MathForGames2025
             Vector2 test2 = test.GetNormalized();
 
             float magnitude = test2.GetMagnitude();
-
+            
             Start();
             float currentTime = 0f;
             float lastTime = 0f;
             float deltaTime = 0f;
-
+            
             
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
+
+                Matrix3 sum = testa * testb;
+                Console.WriteLine(sum);
 
                 Console.WriteLine("_________________________");
                 Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));

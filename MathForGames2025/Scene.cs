@@ -68,7 +68,7 @@ namespace MathForGames2025
                 _actors[i].Start();
             }
         }
-
+        
         public virtual void Update(float deltaTime)
         {
             for (int i = 0; i < _actors.Length; i++)

@@ -17,6 +17,21 @@ namespace MathForGames2025
             get { return _velocity; }
             set { _velocity = value; }
         }
+        public override void OnCollision(Actor other)
+        {
+            Icon newicon = Actoricon;
+            newicon.RaylibColor = Color.YELLOW;
+
+            Actoricon = newicon;
+            if (!CheckCollision(other))
+            {
+                return;
+            }
+
+            newicon.RaylibColor = Color.WHITE;
+
+            Actoricon = newicon;
+        }
         public override void Draw()
         {
             Vector2 endposition = Position + Facing * 100;

@@ -50,10 +50,6 @@ namespace MathForGames2025
 
         public virtual bool CheckCollisionCircle(CircleCollider collider)
         {
-            if (collider._colliderID == 1)
-            {
-                return CheckCollision(collider);
-            }
             return false;
         }
     }

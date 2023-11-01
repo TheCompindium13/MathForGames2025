@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using MathLibrary;
@@ -74,6 +75,8 @@ namespace MathForGames2025
 
             //set velocity to be vector scaled by speed
             Velocity = direction * 100;
+
+            
 
 
             //(Done) The enemy should only be able to see the player if they are within a certain angle relative to the enemy's forward facing vector. 

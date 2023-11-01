@@ -30,8 +30,10 @@ namespace MathForGames2025
             _testEnemy = new Enemy(_testActor, enemyIcon, enemystartPosition, .3f, 100f);
 
             CircleCollider playercollider = new CircleCollider(20, _testActor);
+            CircleCollider enemycollider = new CircleCollider(_testEnemy.MaxAngle, _testEnemy);
 
             _testActor.AttachedCollider = playercollider;
+            _testEnemy.AttachedCollider = enemycollider;
 
             AddActor(_testEnemy);
             AddActor(_testActor);

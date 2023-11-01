@@ -60,8 +60,12 @@ namespace MathForGames2025
             Velocity = direction.GetNormalized() * _speed;
 
             Position += Velocity * deltaTime;
-            
-            
+
+            Icon newicon = Actoricon;
+
+            newicon.RaylibColor = Color.YELLOW;
+
+            Actoricon = newicon;
         }
     }
 }
