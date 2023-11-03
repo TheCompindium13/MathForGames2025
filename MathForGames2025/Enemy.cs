@@ -23,6 +23,12 @@ namespace MathForGames2025
             _seedistance = seedistance;
 
         }
+        public Enemy(Character target, string spritePath, Vector2 position, float maxangle, float seedistance) : base(spritePath, position)
+        {
+            _target = target;
+            _maxangle = maxangle;
+            _seedistance = seedistance;
+        }
         public float MaxAngle
         {
             get { return _maxangle; }

@@ -41,14 +41,17 @@ namespace MathForGames2025
         public Character(Icon icon, Vector2 position) : base(icon, position)
         {
         }
+        public Character(string spritePath, Vector2 position) : base(spritePath, position)
+        {
 
+        }
         public override void Update(float deltaTime)
         {
             Position += Velocity * deltaTime;
             
             //(Done) The enemy's facing should always be in the last direction they were moving in.
             
-            Facing = Velocity.GetNormalized();
+            //Facing = Velocity.GetNormalized();
 
             //This set of if statements wraps the player icon around to the other side
             //------------------------------------------------------------------------

@@ -18,6 +18,11 @@ namespace MathForGames2025
         private static bool _applicationShouldClose;
         private static Icon[,] _buffer;
         private static Scene _currentScene;
+        string M00 = Matrix3.Identity.M00.ToString(); string M01 = Matrix3.Identity.M01.ToString(); string M02 = Matrix3.Identity.M02.ToString();
+        string M10 = Matrix3.Identity.M10.ToString(); string M11 = Matrix3.Identity.M11.ToString(); string M12 = Matrix3.Identity.M12.ToString();
+        string M20 = Matrix3.Identity.M20.ToString(); string M21 = Matrix3.Identity.M21.ToString(); string M22 = Matrix3.Identity.M22.ToString();
+        
+
 
         private Stopwatch _stopwatch = new Stopwatch();
         
@@ -101,7 +106,12 @@ namespace MathForGames2025
 
                 Matrix3 sum = testa * testb;
                 Console.WriteLine(sum);
-
+                Console.WriteLine("___________\n");
+                  Console.WriteLine(M00 + "  | " + M01 + "  | " + M02 + "\n" +
+                                        "___________\n" +
+                  M10 + "  | " + M11 + "  | " + M12 + "\n" +
+                                        "___________\n" +
+                  M20 + "  | " + M21 + "  | " + M22);
                 Console.WriteLine("_________________________");
                 Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
                 Console.WriteLine("_________________________");

@@ -15,7 +15,16 @@ namespace MathForGames2025
         {
             
         }
+        public Player(string spritePath, Vector2 position) : base(spritePath, position) 
+        { 
+        }
 
+        public override void OnCollision(Actor other)
+        {
+            base.OnCollision(other);
+
+            _speed = 20;
+        }
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
