@@ -69,16 +69,6 @@
         {
             return MathF.Sqrt(X * X + Y * Y);
         }
-        /// <summary>
-        /// Create overloaded operators for subtracting a vector 
-        /// from another vector,
-        /// multiplying a vector by a scalar
-        /// and dividing a vector by a scalar.
-        /// 
-        /// Create a new class called player.
-        /// The class should override the update function
-        /// and change the position based on player input.
-        /// </summary>
 
         public static Vector2 operator + (Vector2 lhs, Vector2 rhs)
         {

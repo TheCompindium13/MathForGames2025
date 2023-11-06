@@ -47,6 +47,8 @@ namespace MathForGames2025
         }
         public override void Update(float deltaTime)
         {
+            base.Update(deltaTime);
+
             Position += Velocity * deltaTime;
             
             //(Done) The enemy's facing should always be in the last direction they were moving in.

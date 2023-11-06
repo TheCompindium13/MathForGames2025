@@ -28,7 +28,6 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-
             Console.WriteLine("_________________________");
             Console.WriteLine("Position X:" + Position.X);
             Console.WriteLine("_________________________");
@@ -41,9 +40,10 @@ namespace MathForGames2025
 
             Vector2 direction = new Vector2();
 
+
             if (Raylib.IsKeyDown(KeyboardKey.KEY_W) || Raylib.IsKeyDown(KeyboardKey.KEY_UP))
             {
-                direction += new Vector2(0, -1);
+                Translate(Velocity.X, Velocity.Y);
             }
             if (Raylib.IsKeyDown(KeyboardKey.KEY_S) || Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
             {
@@ -61,7 +61,14 @@ namespace MathForGames2025
             {
                 _speed = 1000;
             }
-
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_Q))
+            {
+                Rotate(.1f);
+            }
+            else if (Raylib.IsKeyDown(KeyboardKey.KEY_E))
+            {
+                Rotate(-.1f);
+            }
             else
             {
                 _speed = 400;

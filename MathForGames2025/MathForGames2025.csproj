@@ -9,11 +9,15 @@
 
   <ItemGroup>
     <None Remove="Images\Nic.png" />
+    <None Remove="Images\nic2.0.png" />
     <None Remove="Images\nicbullet.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Images\Nic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\nic2.0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\nicbullet.png">
