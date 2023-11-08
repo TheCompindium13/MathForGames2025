@@ -106,12 +106,12 @@ namespace MathForGames2025
 
                 Matrix3 sum = testa * testb;
                 Console.WriteLine(sum);
-                Console.WriteLine("___________\n");
-                  Console.WriteLine(M00 + "  | " + M01 + "  | " + M02 + "\n" +
-                                        "___________\n" +
-                  M10 + "  | " + M11 + "  | " + M12 + "\n" +
-                                        "___________\n" +
-                  M20 + "  | " + M21 + "  | " + M22);
+                Console.WriteLine(            "___________\n");
+                  Console.WriteLine(M00 + "  | " + M01 + "   | " + M02 + "\n" +
+                                              "___________\n" +
+                                    M10 + "  | " + M11 + "   | " + M12 + "\n" +
+                                              "___________\n" +
+                                    M20 + "  | " + M21 + "   | " + M22);
                 Console.WriteLine("_________________________");
                 Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
                 Console.WriteLine("_________________________");

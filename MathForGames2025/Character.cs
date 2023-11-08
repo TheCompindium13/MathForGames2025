@@ -34,8 +34,8 @@ namespace MathForGames2025
         }
         public override void Draw()
         {
-            Vector2 endposition = Position + Facing * 100;
-            Raylib.DrawLine((int)Position.X, (int)Position.Y, (int)endposition.X, (int)endposition.Y, Actoricon.RaylibColor);
+            Vector2 endposition = LocalPosition + Facing * 100;
+            Raylib.DrawLine((int)LocalPosition.X, (int)LocalPosition.Y, (int)endposition.X, (int)endposition.Y, Actoricon.RaylibColor);
             base.Draw();
         }
         public Character(Icon icon, Vector2 position) : base(icon, position)
@@ -49,7 +49,7 @@ namespace MathForGames2025
         {
             base.Update(deltaTime);
 
-            Position += Velocity * deltaTime;
+            LocalPosition += Velocity * deltaTime;
             
             //(Done) The enemy's facing should always be in the last direction they were moving in.
             
@@ -57,21 +57,21 @@ namespace MathForGames2025
 
             //This set of if statements wraps the player icon around to the other side
             //------------------------------------------------------------------------
-            if (Position.X >= 800)
+            if (LocalPosition.X >= 800)
             {
-                Position = new Vector2(0, Position.Y);
+                LocalPosition = new Vector2(0, LocalPosition.Y);
             }
-            else if (Position.X <= -360)
+            else if (LocalPosition.X <= -360)
             {
-                Position = new Vector2(800, Position.Y);
+                LocalPosition = new Vector2(800, LocalPosition.Y);
             }
-            if (Position.Y >= 450)
+            if (LocalPosition.Y >= 450)
             {
-                Position = new Vector2(Position.X, 0);
+                LocalPosition = new Vector2(LocalPosition.X, 0);
             }
-            else if (Position.Y <= -47)
+            else if (LocalPosition.Y <= -47)
             {
-                Position = new Vector2(Position.X, 450);
+                LocalPosition = new Vector2(LocalPosition.X, 450);
             }
             //------------------------------------------------------------------------
         }

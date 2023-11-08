@@ -9,7 +9,7 @@ namespace MathForGames2025
 {
     internal class Player : Character
     {
-        public float _speed = 400;
+        public float _speed = 05;
 
         public Player(Icon icon, Vector2 position) : base (icon, position) 
         {
@@ -28,10 +28,11 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
+            
             Console.WriteLine("_________________________");
-            Console.WriteLine("Position X:" + Position.X);
+            Console.WriteLine("Position X:" + LocalPosition.X);
             Console.WriteLine("_________________________");
-            Console.WriteLine("Position Y:" + Position.Y);
+            Console.WriteLine("Position Y:" + LocalPosition.Y);
             Console.WriteLine("_________________________");
             Console.WriteLine(deltaTime);
 
@@ -43,19 +44,24 @@ namespace MathForGames2025
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_W) || Raylib.IsKeyDown(KeyboardKey.KEY_UP))
             {
-                Translate(Velocity.X, Velocity.Y);
+                direction += new Vector2(0, -1);
+
+
             }
             if (Raylib.IsKeyDown(KeyboardKey.KEY_S) || Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
             {
                 direction += new Vector2(0, 1);
+
             }
             if (Raylib.IsKeyDown(KeyboardKey.KEY_A) || Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
             {
                 direction += new Vector2(-1, 0);
+
             }
             if (Raylib.IsKeyDown(KeyboardKey.KEY_D) || Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
             {
                 direction += new Vector2(1, 0);
+
             }
             if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT_SHIFT))
             {
@@ -67,15 +73,16 @@ namespace MathForGames2025
             }
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_E))
             {
-                Rotate(-.1f);
+                Rotate(-10f);
             }
             else
             {
                 _speed = 400;
             }
-            Velocity = direction.GetNormalized() * _speed;
+            Rotate(100f);
+            Velocity = direction.GetNormalized() * _speed * deltaTime;
 
-            Position += Velocity * deltaTime;
+            Translate(Velocity.X, Velocity.Y);
 
             Icon newicon = Actoricon;
 

@@ -48,10 +48,11 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
 
+            base.Update(deltaTime);
 
 
             //vector = enemy to target
-            Vector2 enemytotarget = _target.Position - Position; 
+            Vector2 enemytotarget = _target.LocalPosition - LocalPosition; 
             //normalise vector
             Vector2 direction = enemytotarget.GetNormalized();
 
@@ -70,12 +71,13 @@ namespace MathForGames2025
             {
                 return;
             }
-            if (Vector2.GetDistance(_target.Position, Position) >= _seedistance)
+            if (Vector2.GetDistance(_target.LocalPosition, LocalPosition) >= _seedistance)
             {
+
                 return;
             }
             newicon.RaylibColor = Color.RED;
-
+            
             Actoricon = newicon;
 
 
@@ -93,7 +95,6 @@ namespace MathForGames2025
 
             //(Done) The ability to set the max Seeing distance in the constructor.
 
-            base.Update(deltaTime);
 
 
         }

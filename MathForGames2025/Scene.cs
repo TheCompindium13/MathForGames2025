@@ -77,9 +77,13 @@ namespace MathForGames2025
                 {
                     _actors[i].Start();
                 }
-
                 _actors[i].Update(deltaTime);
 
+                if (_actors[i].AttachedCollider == null)
+                {
+                    continue;
+                }
+                
                 for (int j = 0; j < _actors.Length; j++)
                 {
                     if (_actors[i] == _actors[j])
@@ -93,6 +97,7 @@ namespace MathForGames2025
                     }
                 }
             }
+            
         }
 
         public virtual void Draw()

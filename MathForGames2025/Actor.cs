@@ -30,14 +30,16 @@ namespace MathForGames2025
     internal class Actor
     {
         private Icon _icon;
-        private Matrix3 _transform = Matrix3.Identity;
+        private Actor _parent;
+        private Matrix3 _globaltransform = Matrix3.Identity;
+        private Matrix3 _localtransform = Matrix3.Identity;
         private Matrix3 _translation = Matrix3.Identity;
         private Matrix3 _rotation = Matrix3.Identity;
         private Matrix3 _scale = Matrix3.Identity;
         private bool _started;
         private Collider _collider;
         private Sprite _sprite;
-        public Vector2 Position
+        public Vector2 LocalPosition
         {
             get { return new Vector2(_translation.M02, _translation.M12); }
             set
@@ -46,10 +48,30 @@ namespace MathForGames2025
                 _translation.M12 = value.Y;
             }
         }
+        public Vector2 WorldPosition
+        {
+            get { return new Vector2(_globaltransform.M02, _globaltransform.M12); }
+            set
+            {
+                _globaltransform.M02 = value.X;
+                _globaltransform.M12 = value.Y;
+            }
+        }
+        public Actor Parent
+        {
+            get { return _parent; }
+            set { _parent = value; }
+        }
         public Actor(string spritePath, Vector2 position )
         {
             _sprite = new Sprite(spritePath);
-            Position = position;
+            LocalPosition = position;
+        }
+        public Actor(Actor parent, string spritePath, Vector2 position)
+        {
+            Parent = parent;
+            _sprite = new Sprite(spritePath);
+            LocalPosition = position;
         }
         public Vector2 Facing
         {
@@ -70,6 +92,14 @@ namespace MathForGames2025
 
             }
         }
+        public Matrix3 LocalTransform
+        {
+            get { return _localtransform; }
+        }
+        public Matrix3 GlobalTransform
+        {
+            get { return _globaltransform; }
+        }
         public Collider AttachedCollider
         {
             get { return _collider; }
@@ -78,7 +108,7 @@ namespace MathForGames2025
         public Actor(Icon icon, Vector2 position) 
         {
             _icon = icon;
-            Position = position;
+            LocalPosition = position;
         }
         public bool Started
         {
@@ -92,6 +122,8 @@ namespace MathForGames2025
         public virtual void Update(float deltaTime)
         {
             UpdateTransforms();
+            
+
         }
 
         public virtual void Draw()
@@ -103,7 +135,7 @@ namespace MathForGames2025
             //Draw the sprite if this actor has one
             if (_sprite != null)
             {
-                _sprite.Draw(_transform);
+                _sprite.Draw(_globaltransform);
             }
         }
 
@@ -169,13 +201,24 @@ namespace MathForGames2025
             _rotation = Matrix3.CreateRotation(radians);
 
         }
+        
         /// <summary>
         /// Concatenates all of the transformations matrices and stores the result into the actor transform
         /// </summary>
         private void UpdateTransforms()
         {
-            _transform = _translation * _rotation * _scale;
+            _localtransform = _translation * _rotation * _scale;
+
+            if (_parent != null)
+            {
+                _globaltransform = _parent._globaltransform * _localtransform;
+            }
+            else
+            {
+                _globaltransform = _localtransform;
+            }
         }
+
     }
 
 }

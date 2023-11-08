@@ -11,6 +11,16 @@
     <None Remove="Images\Nic.png" />
     <None Remove="Images\nic2.0.png" />
     <None Remove="Images\nicbullet.png" />
+    <None Remove="Images\planet00.png" />
+    <None Remove="Images\planet01.png" />
+    <None Remove="Images\planet02.png" />
+    <None Remove="Images\planet03.png" />
+    <None Remove="Images\planet04.png" />
+    <None Remove="Images\planet05.png" />
+    <None Remove="Images\planet06.png" />
+    <None Remove="Images\planet07.png" />
+    <None Remove="Images\planet08.png" />
+    <None Remove="Images\planet09.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +31,36 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\nicbullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet00.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet06.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet07.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet08.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\planet09.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

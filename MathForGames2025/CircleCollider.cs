@@ -24,7 +24,7 @@ namespace MathForGames2025
         
         public override bool CheckCollisionCircle(CircleCollider collider)
         {
-            float distance = Vector2.GetDistance(Owner.Position, collider.Owner.Position);
+            float distance = Vector2.GetDistance(Owner.LocalPosition, collider.Owner.LocalPosition);
             float RemainingRadius = Radius + collider.Radius;
             if (distance <= RemainingRadius)
             {
