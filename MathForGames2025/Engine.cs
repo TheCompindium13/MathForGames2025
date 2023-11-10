@@ -81,6 +81,16 @@ namespace MathForGames2025
         {
             _applicationShouldClose = true;
         }
+        /// <summary>
+        /// Adds the given actor to the current scene array
+        /// </summary>
+        /// <param name="actortoSpawn">A reference to the actor to copy and add to the scene</param>
+        /// <returns></returns>
+        public static Actor AddActortoScene(Actor actortoSpawn)
+        {
+            _currentScene.AddActor(actortoSpawn);
+            return actortoSpawn;
+        }
         public void Run()
         {
             Matrix3 testa = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);

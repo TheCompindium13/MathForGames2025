@@ -9,14 +9,16 @@ namespace MathForGames2025
 {
     internal class Player : Character
     {
-        public float _speed = 05;
+        private float _speed = 05;
+        private ProjectileSpawnerr _spawner;
 
         public Player(Icon icon, Vector2 position) : base (icon, position) 
         {
             
         }
         public Player(string spritePath, Vector2 position) : base(spritePath, position) 
-        { 
+        {
+            _spawner = new ProjectileSpawnerr(new Vector2(1, 0), this, 50, "Images/bullet.png");
         }
 
         public override void OnCollision(Actor other)
@@ -67,19 +69,26 @@ namespace MathForGames2025
             {
                 _speed = 1000;
             }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_Q))
+            if (!Raylib.IsKeyUp(KeyboardKey.KEY_Q))
             {
                 Rotate(.1f);
             }
-            else if (Raylib.IsKeyDown(KeyboardKey.KEY_E))
+            else if (!Raylib.IsKeyUp(KeyboardKey.KEY_E))
             {
-                Rotate(-10f);
+                Rotate(-1f);
             }
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE))
+            {
+                _spawner.SpawnProjectile();
+            }
+
+
             else
             {
                 _speed = 400;
             }
-            Rotate(100f);
+            
+            
             Velocity = direction.GetNormalized() * _speed * deltaTime;
 
             Translate(Velocity.X, Velocity.Y);
