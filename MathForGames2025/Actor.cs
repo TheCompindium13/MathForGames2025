@@ -75,7 +75,7 @@ namespace MathForGames2025
         }
         public Vector2 Facing
         {
-            get { return new Vector2(_rotation.M00, _rotation.M01).GetNormalized(); }
+            get { return new Vector2(_globaltransform.M00, _localtransform.M01).GetNormalized(); }
 
         }
         public Vector2 Size
@@ -165,8 +165,8 @@ namespace MathForGames2025
         /// <summary>
         /// move the actor by the given amount from its current position
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">The amount to move on the x axis</param>
+        /// <param name="y">The amount to move on the y axis</param>
         public void Translate(float x, float y)
         {
             _translation *= Matrix3.CreateTranslation(x, y);
@@ -180,22 +180,44 @@ namespace MathForGames2025
         {
             _translation = Matrix3.CreateTranslation(x,y);
         }
+        /// <summary>
+        /// scale the actor by the given amount from its current position
+        /// </summary>
+        /// <param name="x">The amount to scale on the x axis</param>
+        /// <param name="y">The amount to scale on the y axis</param>
         public void Scale(float x, float y)
         {
             _scale *= Matrix3.CreateScale(x, y);
 
 
         }
+        /// <summary>
+        /// Sets the actors scaled position
+        /// 
+        /// to be the given value.
+        /// </summary>
+        /// <param name="x">The new x axis position</param>
+        /// <param name="y">The new y axis position</param>
         public void SetScale(float x, float y)
         {
             _scale = Matrix3.CreateScale(x, y);
 
         }
+        /// <summary>
+        /// rotate the actor by the given amount from its current position
+        /// </summary>
+        /// <param name="x">The amount to rotate on the x axis</param>
+        /// <param name="y">The amount to rotate on the y axis</param>
         public void Rotate(float radians)
         {
             _rotation *= Matrix3.CreateRotation(radians);
 
         }
+        /// <summary>
+        /// Sets the actors rotated position to be the given value.
+        /// </summary>
+        /// <param name="x">The new x axis position</param>
+        /// <param name="y">The new y axis position</param>
         public void SetRotate(float radians)
         {
             _rotation = Matrix3.CreateRotation(radians);

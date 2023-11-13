@@ -84,6 +84,10 @@
         {
             return new Vector2(lhs.X * scalar, lhs.Y * scalar);
         }
+        public static Vector2 operator *(float scalar, Vector2 lhs)
+        {
+            return new Vector2(lhs.X * scalar, lhs.Y * scalar);
+        }
 
         public static Vector2 operator / (Vector2 lhs, float scalar)
         {

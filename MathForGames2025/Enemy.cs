@@ -52,7 +52,7 @@ namespace MathForGames2025
 
 
             //vector = enemy to target
-            Vector2 enemytotarget = _target.LocalPosition - LocalPosition; 
+            Vector2 enemytotarget = _target.WorldPosition - LocalPosition; 
             //normalise vector
             Vector2 direction = enemytotarget.GetNormalized();
 
@@ -76,6 +76,7 @@ namespace MathForGames2025
 
                 return;
             }
+            
             newicon.RaylibColor = Color.RED;
             
             Actoricon = newicon;
