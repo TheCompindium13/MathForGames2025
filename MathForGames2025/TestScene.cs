@@ -49,7 +49,7 @@ namespace MathForGames2025
             Icon nicIcon = new Icon{ RaylibColor = Color.BEIGE, Symbol = "NIC" };
 
             _testActor = new Player("Images/Nic.png", startPosition);
-            _testEnemy = new Enemy(_testActor, "Images/nicbullet.png", enemystartPosition, .3f, 100f);
+            _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, .3f, 100f);
             _testNic = new Enemy(_testActor, "Images/nic2.0.png", nicstartPosition, .3f, 100f);
             _testSun = new Actor("Images/planet00.png", sunstartPosition);
             _testEarth = new Actor("Images/planet01.png", earthstartPosition);
