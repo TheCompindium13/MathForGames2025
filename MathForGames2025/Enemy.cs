@@ -53,14 +53,13 @@ namespace MathForGames2025
 
 
             //vector = enemy to target
-            Vector2 enemytotarget = _target.LocalPosition - LocalPosition; 
+            Vector2 enemytotarget = _target.WorldPosition - WorldPosition; 
             //normalise vector
             Vector2 direction = enemytotarget.GetNormalized();
 
-            float dotproduct = Vector2.DotProduct(direction, _target.Facing);
+            float dotproduct = Vector2.DotProduct(direction, Facing);
 
             Console.WriteLine("Dot Product: " + dotproduct);
-            Velocity = direction * 100;
 
 
             Icon newicon = Actoricon;
@@ -68,26 +67,26 @@ namespace MathForGames2025
             newicon.RaylibColor = Color.YELLOW;
 
             Actoricon = newicon;
-            
+
             if (dotproduct <= _maxangle)
             {
                 return;
             }
-            if (Vector2.GetDistance(_target.LocalPosition, WorldPosition) >= _seedistance)
+
+            if (Vector2.GetDistance(_target.WorldPosition, WorldPosition) >= _seedistance)
             {
 
                 return;
 
             }
-            
             newicon.RaylibColor = Color.RED;
             SetScale(100,100);
             Actoricon = newicon;
 
-
             //set velocity to be vector scaled by speed
 
-            
+            Velocity = direction * 100;
+
 
 
             //(Done) The enemy should only be able to see the player if they are within a certain angle relative to the enemy's forward facing vector. 

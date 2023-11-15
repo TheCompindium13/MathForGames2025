@@ -20,16 +20,14 @@ namespace MathForGames2025
             _damage = damage;
             _bulletcollider = new CircleCollider(100, this);
             AttachedCollider = _bulletcollider;
-
-            if (AttachedCollider != null)
-            {
-                SetScale(100, 100);
-                return;
-            }
         }
         public override void OnCollision(Actor other)
         {
             base.OnCollision(other);
+            if (other != _owner)
+            {
+                other.WorldPosition = new Vector2(100,100);
+            }
         }
         public override void Update(float deltaTime)
         {
