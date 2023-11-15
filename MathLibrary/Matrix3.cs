@@ -47,8 +47,8 @@ namespace MathLibrary
         }
         public static Matrix3 CreateScale(float x, float y)
         {
-            return new Matrix3(x, y, 0,
-                               0, 1, 0,
+            return new Matrix3(x, 0, 0,
+                               0, y, 0,
                                0, 0, 1);
         }
         public static Matrix3 operator +(Matrix3 a, Matrix3 b)

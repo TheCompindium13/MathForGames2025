@@ -39,6 +39,7 @@ namespace MathForGames2025
         private bool _started;
         private Collider _collider;
         private Sprite _sprite;
+        private float _health;
         public Vector2 LocalPosition
         {
             get { return new Vector2(_translation.M02, _translation.M12); }
@@ -62,16 +63,17 @@ namespace MathForGames2025
             get { return _parent; }
             set { _parent = value; }
         }
-        public Actor(string spritePath, Vector2 position )
+        public Actor(string spritePath, Vector2 position)
         {
             _sprite = new Sprite(spritePath);
             LocalPosition = position;
         }
-        public Actor(Actor parent, string spritePath, Vector2 position)
+        public Actor(Actor parent, string spritePath, Vector2 position, float health)
         {
             Parent = parent;
             _sprite = new Sprite(spritePath);
             LocalPosition = position;
+            _health = health;
         }
         public Vector2 Facing
         {
@@ -117,6 +119,7 @@ namespace MathForGames2025
         public virtual void Start()
         {
             _started = true;
+            
         }
 
         public virtual void Update(float deltaTime)
@@ -211,7 +214,7 @@ namespace MathForGames2025
 
             if (_parent != null)
             {
-                _globaltransform = _parent._globaltransform * _localtransform;
+                _globaltransform = Parent.GlobalTransform * _localtransform;
             }
             else
             {

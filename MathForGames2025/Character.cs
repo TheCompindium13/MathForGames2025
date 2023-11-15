@@ -21,7 +21,7 @@ namespace MathForGames2025
         {
             Icon newicon = Actoricon;
             newicon.RaylibColor = Color.YELLOW;
-
+            other.SetScale(10, 10);
             Actoricon = newicon;
             if (!CheckCollision(other))
             {
@@ -32,6 +32,8 @@ namespace MathForGames2025
 
             Actoricon = newicon;
         }
+        private float _health;
+
         public override void Draw()
         {
             Vector2 endposition = LocalPosition + Facing * 100;
@@ -41,7 +43,7 @@ namespace MathForGames2025
         public Character(Icon icon, Vector2 position) : base(icon, position)
         {
         }
-        public Character(string spritePath, Vector2 position) : base(spritePath, position)
+        public Character(string spritePath, Vector2 position, float health) : base(spritePath, position)
         {
 
         }

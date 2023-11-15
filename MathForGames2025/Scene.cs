@@ -86,7 +86,7 @@ namespace MathForGames2025
                 
                 for (int j = 0; j < _actors.Length; j++)
                 {
-                    if (_actors[i] == _actors[j])
+                     if (_actors[i] == _actors[j])
                     {
                         continue;
                     }

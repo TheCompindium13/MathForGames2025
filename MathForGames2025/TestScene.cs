@@ -25,6 +25,7 @@ namespace MathForGames2025
         private Actor _testGali;
         private Actor _testJim;
 
+
         public override void Start()
         {
             Matrix3 testa = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -44,13 +45,14 @@ namespace MathForGames2025
             Vector2 venusstartPosition = new Vector2(0, -2);
             Vector2 galistartPosition = new Vector2(0, -1);
             Vector2 jimstartPosition = new Vector2(0, 1);
+            
             Icon playerIcon = new Icon{ RaylibColor = Color.YELLOW, Symbol = "H"};
             Icon enemyIcon = new Icon{ RaylibColor = Color.RED, Symbol = "R" };
             Icon nicIcon = new Icon{ RaylibColor = Color.BEIGE, Symbol = "NIC" };
 
-            _testActor = new Player("Images/Nic.png", startPosition);
-            _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, .3f, 100f);
-            _testNic = new Enemy(_testActor, "Images/nic2.0.png", nicstartPosition, .3f, 100f);
+            _testActor = new Player("Images/Nic.png", startPosition, 100);
+            _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, 100, .3f, 100f);
+            _testNic = new Enemy(_testActor, "Images/nic2.0.png", nicstartPosition, 100, .3f, 100f);
             _testSun = new Actor("Images/planet00.png", sunstartPosition);
             _testEarth = new Actor("Images/planet01.png", earthstartPosition);
             _testMars = new Actor("Images/planet02.png", marsstartPosition);
@@ -75,10 +77,10 @@ namespace MathForGames2025
             _testVenus.Size = new Vector2(1, 1);
             _testGali.Size = new Vector2(1, 1);
             _testJim.Size = new Vector2(1, 1);
+            
             CircleCollider playercollider = new CircleCollider(20, _testActor);
             CircleCollider enemycollider = new CircleCollider(_testEnemy.MaxAngle, _testEnemy);
             CircleCollider niccollider = new CircleCollider(_testNic.MaxAngle, _testNic);
-
             _testSun.Parent = _testActor;
             _testEarth.Parent = _testActor;
             _testMars.Parent = _testActor;
@@ -95,23 +97,23 @@ namespace MathForGames2025
             _testActor.AttachedCollider = playercollider;
             _testEnemy.AttachedCollider = enemycollider;
             _testNic.AttachedCollider = niccollider;
-
+            
             AddActor(_testActor);
             AddActor(_testEnemy);
             AddActor(_testNic);
-            AddActor(_testSun);
-            AddActor(_testEarth);
-            AddActor(_testMars);
-            AddActor(_testJup);
-            AddActor(_testPluto);
-            AddActor(_testMoon);
-            AddActor(_testSaturn);
-            AddActor(_testVenus);
-            AddActor(_testGali);
-            AddActor(_testJim);
+            //AddActor(_testSun);
+            //AddActor(_testEarth);
+            //AddActor(_testMars);
+            //AddActor(_testJup);
+            //AddActor(_testPluto);
+            //AddActor(_testMoon);
+            //AddActor(_testSaturn);
+            //AddActor(_testVenus);
+            //AddActor(_testGali);
+            //AddActor(_testJim);
 
 
-
+            
 
             base.Start();
 

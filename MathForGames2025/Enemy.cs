@@ -23,11 +23,12 @@ namespace MathForGames2025
             _seedistance = seedistance;
 
         }
-        public Enemy(Character target, string spritePath, Vector2 position, float maxangle, float seedistance) : base(spritePath, position)
+        public Enemy(Character target, string spritePath, Vector2 position, float health, float maxangle, float seedistance) : base(spritePath, position, health)
         {
             _target = target;
             _maxangle = maxangle;
             _seedistance = seedistance;
+            
         }
         public float MaxAngle
         {
@@ -56,11 +57,12 @@ namespace MathForGames2025
             //normalise vector
             Vector2 direction = enemytotarget.GetNormalized();
 
-            float dotproduct = Vector2.DotProduct(direction, Facing);
+            float dotproduct = Vector2.DotProduct(direction, _target.Facing);
 
             Console.WriteLine("Dot Product: " + dotproduct);
+            Velocity = direction * 100;
 
-            
+
             Icon newicon = Actoricon;
 
             newicon.RaylibColor = Color.YELLOW;
@@ -71,18 +73,19 @@ namespace MathForGames2025
             {
                 return;
             }
-            if (Vector2.GetDistance(_target.LocalPosition, LocalPosition) >= _seedistance)
+            if (Vector2.GetDistance(_target.LocalPosition, WorldPosition) >= _seedistance)
             {
 
                 return;
+
             }
-            newicon.RaylibColor = Color.RED;
             
+            newicon.RaylibColor = Color.RED;
+            SetScale(100,100);
             Actoricon = newicon;
 
 
             //set velocity to be vector scaled by speed
-            Velocity = direction * 100;
 
             
 

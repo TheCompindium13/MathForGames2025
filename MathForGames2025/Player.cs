@@ -10,17 +10,22 @@ namespace MathForGames2025
     internal class Player : Character
     {
         private float _speed = 05;
-        private ProjectileSpawnerr _spawner;
+        private ProjectileSpawner _spawner;
 
         public Player(Icon icon, Vector2 position) : base (icon, position) 
         {
             
         }
-        public Player(string spritePath, Vector2 position) : base(spritePath, position) 
+        public Player(string spritePath, Vector2 position, float heath) : base(spritePath, position, heath) 
         {
-            _spawner = new ProjectileSpawnerr(new Vector2(1, 0), this, 50, "Images/bullet.png");
-        }
+            _spawner = new ProjectileSpawner(new Vector2(1, 0), this, 50, "Images/bullet.png");
 
+        }
+        public override void Draw()
+        {
+            base.Draw();
+
+        }
         public override void OnCollision(Actor other)
         {
             base.OnCollision(other);
@@ -30,7 +35,7 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-            
+            //_spawner.RemoveProjectile();
             Console.WriteLine("_________________________");
             Console.WriteLine("Position X:" + LocalPosition.X);
             Console.WriteLine("_________________________");
@@ -75,11 +80,12 @@ namespace MathForGames2025
             }
             else if (!Raylib.IsKeyUp(KeyboardKey.KEY_E))
             {
-                Rotate(-1f);
+                Rotate(-0.1f);
             }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE))
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 _spawner.SpawnProjectile();
+                
             }
 
 

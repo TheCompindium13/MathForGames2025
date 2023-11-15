@@ -22,6 +22,17 @@ namespace MathForGames2025
         string M10 = Matrix3.Identity.M10.ToString(); string M11 = Matrix3.Identity.M11.ToString(); string M12 = Matrix3.Identity.M12.ToString();
         string M20 = Matrix3.Identity.M20.ToString(); string M21 = Matrix3.Identity.M21.ToString(); string M22 = Matrix3.Identity.M22.ToString();
         
+        public static int ScreenWidth
+        {
+            get
+                { return _screenwidth; }
+
+        }
+        public static int ScreenHeight
+        {
+            get
+            { return _screenheight; }
+        }
 
 
         private Stopwatch _stopwatch = new Stopwatch();
@@ -90,6 +101,17 @@ namespace MathForGames2025
         {
             _currentScene.AddActor(actortoSpawn);
             return actortoSpawn;
+
+        }
+        /// <summary>
+        /// Removes the given actor from the current scene array
+        /// </summary>
+        /// <param name="actortoRemove">A reference to the actor to remove it from the scene</param>
+        /// <returns></returns>
+        public static Actor RemoveActorfromScene(Actor actortoRemove)
+        {
+            _currentScene.RemoveActor(actortoRemove);
+            return actortoRemove;
         }
         public void Run()
         {
