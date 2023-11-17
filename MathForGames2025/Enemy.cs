@@ -49,7 +49,6 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
 
-            base.Update(deltaTime);
 
 
             //vector = enemy to target
@@ -59,7 +58,7 @@ namespace MathForGames2025
 
             float dotproduct = Vector2.DotProduct(direction, Facing);
 
-            Console.WriteLine("Dot Product: " + dotproduct);
+            //Console.WriteLine("Dot Product: " + dotproduct);
 
 
             Icon newicon = Actoricon;
@@ -97,6 +96,7 @@ namespace MathForGames2025
 
             //(Done) The ability to set the max Seeing distance in the constructor.
 
+            base.Update(deltaTime);
 
 
         }

@@ -34,7 +34,7 @@ namespace MathForGames2025
         {
 
             _projectilespeed = 200;
-            Bullet bullet = new Bullet(_projectilespritePath, Parent.WorldPosition, _owner, Parent.Facing * _projectilespeed, 67);
+            Bullet bullet = new Bullet(_projectilespritePath, WorldPosition, _owner, Parent.Facing * _projectilespeed, 67);
             bullet.Size = new Vector2(100f, 100f);
             Engine.AddActortoScene(bullet);
 

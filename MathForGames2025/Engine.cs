@@ -68,6 +68,8 @@ namespace MathForGames2025
 
             _currentScene.Draw();
             
+            
+            
             Raylib.EndDrawing();
         }
 
@@ -91,6 +93,7 @@ namespace MathForGames2025
         public static void EndApplication()
         {
             _applicationShouldClose = true;
+
         }
         /// <summary>
         /// Adds the given actor to the current scene array
@@ -136,37 +139,38 @@ namespace MathForGames2025
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
 
-                Matrix3 sum = testa * testb;
-                Console.WriteLine(sum);
-                Console.WriteLine(            "___________\n");
-                  Console.WriteLine(M00 + "  | " + M01 + "   | " + M02 + "\n" +
-                                              "___________\n" +
-                                    M10 + "  | " + M11 + "   | " + M12 + "\n" +
-                                              "___________\n" +
-                                    M20 + "  | " + M21 + "   | " + M22);
-                Console.WriteLine("_________________________");
-                Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
-                Console.WriteLine("_________________________");
-                Console.WriteLine("Get Distance: " + Vector2.GetDistance(test, test3));
-                Console.WriteLine("_________________________");
-                test.Normalize();
+                //Matrix3 sum = testa * testb;
+                //Console.WriteLine(sum);
+                //Console.WriteLine(            "___________\n");
+                //  Console.WriteLine(M00 + "  | " + M01 + "   | " + M02 + "\n" +
+                //                              "___________\n" +
+                //                    M10 + "  | " + M11 + "   | " + M12 + "\n" +
+                //                              "___________\n" +
+                //                    M20 + "  | " + M21 + "   | " + M22);
+                //Console.WriteLine("_________________________");
+                //Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
+                //Console.WriteLine("_________________________");
+                //Console.WriteLine("Get Distance: " + Vector2.GetDistance(test, test3));
+                //Console.WriteLine("_________________________");
+                //test.Normalize();
 
-                Console.WriteLine("Test 1 Magnitude: " + test.GetMagnitude());
-                Console.WriteLine("_________________________");
-                Console.WriteLine("Test 2 Magnitude: " + magnitude);
-                Console.WriteLine("_________________________");
+                //Console.WriteLine("Test 1 Magnitude: " + test.GetMagnitude());
+                //Console.WriteLine("_________________________");
+                //Console.WriteLine("Test 2 Magnitude: " + magnitude);
+                //Console.WriteLine("_________________________");
+
+                //Console.WriteLine("Current Time: " + currentTime);
+                //Console.WriteLine("|||||||||||||||||||||||||");
 
                 currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
-
-                Console.WriteLine("Current Time: " + currentTime);
-                Console.WriteLine("|||||||||||||||||||||||||");
 
                 deltaTime = currentTime - lastTime;
                 
                 Draw();
                 Update(deltaTime);
-
+                
                 lastTime = currentTime;
+                _currentScene.Update(deltaTime);
             }
 
             End();

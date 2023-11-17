@@ -138,7 +138,7 @@ namespace MathForGames2025
             //Draw the sprite if this actor has one
             if (_sprite != null)
             {
-                _sprite.Draw(_globaltransform);
+                _sprite.Draw(GlobalTransform);
             }
         }
 

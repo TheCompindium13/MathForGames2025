@@ -18,16 +18,24 @@ namespace MathForGames2025
             _owner = owner;
             _velocity = velocity;
             _damage = damage;
-            _bulletcollider = new CircleCollider(100, this);
+            _bulletcollider = new CircleCollider(20, this);
             AttachedCollider = _bulletcollider;
         }
         public override void OnCollision(Actor other)
         {
-            base.OnCollision(other);
+            Console.WriteLine(other);
+
+            if (other == _owner)
+            {
+                return;
+            }
+                
             if (other != _owner)
             {
-                other.WorldPosition = new Vector2(100,100);
+                other.WorldPosition = new Vector2(450,800);
+
             }
+            base.OnCollision(other);
         }
         public override void Update(float deltaTime)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathLibrary;
+using Raylib_cs;
 
 namespace MathForGames2025
 {
@@ -24,8 +25,9 @@ namespace MathForGames2025
         
         public override bool CheckCollisionCircle(CircleCollider collider)
         {
-            float distance = Vector2.GetDistance(Owner.LocalPosition, collider.Owner.LocalPosition);
+            float distance = Vector2.GetDistance(Owner.LocalPosition, collider.Owner.WorldPosition);
             float RemainingRadius = Radius + collider.Radius;
+            Raylib.DrawCircle((int)collider.Owner.WorldPosition.X, (int)collider.Owner.WorldPosition.Y, collider.Radius, Color.DARKGREEN);
             if (distance <= RemainingRadius)
             {
                 return true;

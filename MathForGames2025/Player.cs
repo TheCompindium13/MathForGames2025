@@ -35,13 +35,13 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-            //_spawner.RemoveProjectile();
-            Console.WriteLine("_________________________");
-            Console.WriteLine("Position X:" + LocalPosition.X);
-            Console.WriteLine("_________________________");
-            Console.WriteLine("Position Y:" + LocalPosition.Y);
-            Console.WriteLine("_________________________");
-            Console.WriteLine(deltaTime);
+            ////_spawner.RemoveProjectile();
+            //Console.WriteLine("_________________________");
+            //Console.WriteLine("Position X:" + LocalPosition.X);
+            //Console.WriteLine("_________________________");
+            //Console.WriteLine("Position Y:" + LocalPosition.Y);
+            //Console.WriteLine("_________________________");
+            //Console.WriteLine(deltaTime);
 
 
             //char direction = Engine.GetInput();
