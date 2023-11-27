@@ -114,38 +114,38 @@ namespace MathForGames2025
 
                 Vector3 sum = Vector3.CrossProduct(test4, test5);
                 Vector3 sum2 = testa * test5;
-                Console.WriteLine("Cross Product: " + sum.X);
-                Console.WriteLine("Cross Product: " + sum.Y);
-                Console.WriteLine("Cross Product: " + sum.Z);
+                //Console.WriteLine("Cross Product: " + sum.X);
+                //Console.WriteLine("Cross Product: " + sum.Y);
+                //Console.WriteLine("Cross Product: " + sum.Z);
 
-                Console.WriteLine(sum2.X);
-                Console.WriteLine(sum2.Y);
-                Console.WriteLine(sum2.Z);
+                //Console.WriteLine(sum2.X);
+                //Console.WriteLine(sum2.Y);
+                //Console.WriteLine(sum2.Z);
 
-                Console.WriteLine(            "___________\n");
-                  Console.WriteLine(M00 + "  | " + M01 + "   | " + M02 + "   | " + M03 + "\n" +
-                                              "___________\n" +
-                                    M10 + "  | " + M11 + "   | " + M12 + "   | " + M13 + "\n" +
-                                              "___________\n" +
-                                    M20 + "  | " + M21 + "   | " + M22 + "   | " + M23 + "\n" +
-                                              "___________\n" +
-                                    M30 + "  | " + M31 + "   | " + M32 + "   | " + M33 + "\n" );
-                Console.WriteLine("_________________________");
-                Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
-                Console.WriteLine("_________________________");
-                Console.WriteLine("Get Distance: " + Vector2.GetDistance(test, test3));
-                Console.WriteLine("_________________________");
+                //Console.WriteLine(            "___________\n");
+                //  Console.WriteLine(M00 + "  | " + M01 + "   | " + M02 + "   | " + M03 + "\n" +
+                //                              "___________\n" +
+                //                    M10 + "  | " + M11 + "   | " + M12 + "   | " + M13 + "\n" +
+                //                              "___________\n" +
+                //                    M20 + "  | " + M21 + "   | " + M22 + "   | " + M23 + "\n" +
+                //                              "___________\n" +
+                //                    M30 + "  | " + M31 + "   | " + M32 + "   | " + M33 + "\n" );
+                //Console.WriteLine("_________________________");
+                //Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
+                //Console.WriteLine("_________________________");
+                //Console.WriteLine("Get Distance: " + Vector2.GetDistance(test, test3));
+                //Console.WriteLine("_________________________");
                 test.Normalize();
 
-                Console.WriteLine("Test 1 Magnitude: " + test.GetMagnitude());
-                Console.WriteLine("_________________________");
-                Console.WriteLine("Test 2 Magnitude: " + magnitude);
-                Console.WriteLine("_________________________");
+                //Console.WriteLine("Test 1 Magnitude: " + test.GetMagnitude());
+                //Console.WriteLine("_________________________");
+                //Console.WriteLine("Test 2 Magnitude: " + magnitude);
+                //Console.WriteLine("_________________________");
 
                 currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
 
-                Console.WriteLine("Current Time: " + currentTime);
-                Console.WriteLine("|||||||||||||||||||||||||");
+                //Console.WriteLine("Current Time: " + currentTime);
+                //Console.WriteLine("|||||||||||||||||||||||||");
 
                 deltaTime = currentTime - lastTime;
                 

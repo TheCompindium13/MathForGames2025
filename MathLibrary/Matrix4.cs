@@ -41,21 +41,21 @@ namespace MathLibrary
         public static Matrix4 CreateRotationX(float radians)
         {
             return new Matrix4(1.0f,                     0.0f,                     0.0f,  0.0f,
-                               0.0f, (float)Math.Cos(radians), (float)Math.Sin(radians),  0.0f,
-                               0.0f, (float)Math.Sin(-radians), (float)Math.Cos(radians), 0.0f,
+                               0.0f, (float)Math.Cos(radians), (float)Math.Sin(-radians),  0.0f,
+                               0.0f, (float)Math.Sin(radians), (float)Math.Cos(radians), 0.0f,
                                0.0f,                      0.0f,                     0.0f, 1.0f);
         }
         public static Matrix4 CreateRotationY(float radians)
         {
-            return new Matrix4((float)Math.Cos(radians), 0.0f, (float)Math.Sin(-radians), 0.0f,
+            return new Matrix4((float)Math.Cos(radians), 0.0f, (float)Math.Sin(radians), 0.0f,
                                0.0f,               1.0f, 0.0f,                            0.0f,
-                               (float)Math.Sin(radians), 0.0f, (float)Math.Cos(radians),  0.0f,
+                               (float)Math.Sin(-radians), 0.0f, (float)Math.Cos(radians),  0.0f,
                                0.0f,               0.0f, 0.0f, 1.0f);
         }
         public static Matrix4 CreateRotationZ(float radians)
         {
-            return new Matrix4((float)Math.Cos(radians), (float)Math.Sin(radians), 0.0f, 0.0f,
-                               (float)Math.Sin(-radians), (float)Math.Cos(radians), 0.0f, 0.0f,
+            return new Matrix4((float)Math.Cos(radians), (float)Math.Sin(-radians), 0.0f, 0.0f,
+                               (float)Math.Sin(radians), (float)Math.Cos(radians), 0.0f, 0.0f,
                                0.0f, 0.0f, 1.0f, 0.0f,
                                0.0f, 0.0f, 0.0f, 1.0f);
         }
@@ -92,11 +92,11 @@ namespace MathLibrary
         {
             return new Matrix4(a.M00 * b.M00 + a.M01 * b.M10 + a.M02 * b.M20 + a.M03 * b.M30, a.M00 * b.M01 + a.M01 * b.M11 + a.M02 * b.M21 + a.M03 * b.M31, a.M00 * b.M02 + a.M01 * b.M12 + a.M02 * b.M22 + a.M03 * b.M32, a.M00 * b.M03 + a.M01 * b.M13 + a.M02 * b.M23 + a.M03 * b.M33,
                                //-----------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|    
-                               a.M10 * b.M00 + a.M11 * b.M10 + a.M12 * b.M20 + a.M13 * b.M30, a.M10 * b.M01 + a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31, a.M10 * b.M02 + a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M33, a.M10 * b.M03 + a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33,
+                               a.M10 * b.M00 + a.M11 * b.M10 + a.M12 * b.M20 + a.M13 * b.M30, a.M10 * b.M01 + a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31, a.M10 * b.M02 + a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32, a.M10 * b.M03 + a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33,
                                //-----------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
-                               a.M20 * b.M00 + a.M21 * b.M10 + a.M22 * b.M20 + a.M23 * b.M30, a.M20 * b.M01 + a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31, a.M20 * b.M02 + a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M33, a.M20 * b.M03 + a.M12 * b.M13 + a.M23 * b.M23 + a.M23 * b.M33,
+                               a.M20 * b.M00 + a.M21 * b.M10 + a.M22 * b.M20 + a.M23 * b.M30, a.M20 * b.M01 + a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31, a.M20 * b.M02 + a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32, a.M20 * b.M03 + a.M12 * b.M13 + a.M23 * b.M23 + a.M23 * b.M33,
                                //-----------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
-                               a.M30 * b.M00 + a.M31 * b.M10 + a.M32 * b.M20 + a.M33 * b.M30, a.M30 * b.M01 + a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31, a.M30 * b.M02 + a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M33, a.M30 * b.M03 + a.M13 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33);
+                               a.M30 * b.M00 + a.M31 * b.M10 + a.M32 * b.M20 + a.M33 * b.M30, a.M30 * b.M01 + a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31, a.M30 * b.M02 + a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32, a.M30 * b.M03 + a.M13 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33);
         }
         public static Vector4 operator *(Matrix4 a, Vector4 b)
         {

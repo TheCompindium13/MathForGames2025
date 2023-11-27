@@ -79,7 +79,6 @@ namespace MathForGames2025
             {
                 _speed = 400;
             }
-            Rotate(100f);
             Velocity = direction.GetNormalized() * _speed * deltaTime;
 
             Translate(Velocity.X, Velocity.Y);

@@ -44,7 +44,11 @@ namespace MathLibrary
         }
         public static Vector4 CrossProduct(Vector4 a, Vector4 b)
         {
-            return new Vector4();
+
+            return new Vector4(a.Y * b.Z - a.Z * b.Y,
+                               a.Z * b.X - a.X * b.Z,
+                               a.X * b.Y - a.Y * b.X,
+                               a.W * b.W);
         }
         /// <summary>
         /// change the size of the vector to have a length of 1
@@ -81,9 +85,9 @@ namespace MathLibrary
         }
         public static float DotProduct(Vector4 a, Vector4 b)
         {
-            
 
-            return a.W + b.W;
+            float dot = a.X * b.X + a.Y * b.Y + a.Z * b.Z + a.W * b.W; 
+            return dot;
         }
 
         public static float GetDistance(Vector4 a, Vector4 b)
@@ -109,7 +113,10 @@ namespace MathLibrary
         {
             return new Vector4(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar, lhs.W * scalar);
         }
-
+        public static Vector4 operator *(Vector4 lhs, float scalar)
+        {
+            return new Vector4(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar, lhs.W * scalar);
+        }
         public static Vector4 operator /(Vector4 lhs, float scalar)
         {
             return new Vector4(lhs.X / scalar, lhs.Y / scalar, lhs.Z / scalar, lhs.W / scalar);
