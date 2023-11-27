@@ -38,6 +38,7 @@ namespace MathForGames2025
             bullet.Size = new Vector2(100f, 100f);
             Engine.AddActortoScene(bullet);
 
+
         }
 
         /// <summary>

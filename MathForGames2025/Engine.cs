@@ -18,6 +18,7 @@ namespace MathForGames2025
         private static bool _applicationShouldClose;
         private static Icon[,] _buffer;
         private static Scene _currentScene;
+        private static Actor[] _actorstoRemove = new Actor[0]; 
         string M00 = Matrix3.Identity.M00.ToString(); string M01 = Matrix3.Identity.M01.ToString(); string M02 = Matrix3.Identity.M02.ToString();
         string M10 = Matrix3.Identity.M10.ToString(); string M11 = Matrix3.Identity.M11.ToString(); string M12 = Matrix3.Identity.M12.ToString();
         string M20 = Matrix3.Identity.M20.ToString(); string M21 = Matrix3.Identity.M21.ToString(); string M22 = Matrix3.Identity.M22.ToString();
@@ -76,6 +77,7 @@ namespace MathForGames2025
         private void Update(float deltaTime)
         {
             _currentScene.Update(deltaTime);
+            RemoveActors();
             
         }
 
@@ -92,7 +94,12 @@ namespace MathForGames2025
 
         public static void EndApplication()
         {
-            _applicationShouldClose = true;
+            Raylib.DrawText("You Win Press escape to close game",200, 225, 20, Color.GREEN);
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_ESCAPE))
+            {
+                _applicationShouldClose = true;
+
+            }
 
         }
         /// <summary>
@@ -111,10 +118,29 @@ namespace MathForGames2025
         /// </summary>
         /// <param name="actortoRemove">A reference to the actor to remove it from the scene</param>
         /// <returns></returns>
-        public static Actor RemoveActorfromScene(Actor actortoRemove)
+        public static void RemoveActorfromScene(Actor actortoRemove)
         {
-            _currentScene.RemoveActor(actortoRemove);
-            return actortoRemove;
+            if (_actorstoRemove == null)
+            {
+                _actorstoRemove = new Actor[0];
+            }
+            Actor[] temp = new Actor[_actorstoRemove.Length + 1];
+
+            for (int i = 0; i < _actorstoRemove.Length; i++)
+            {
+                temp[i] = _actorstoRemove[i];
+            }
+            temp[_actorstoRemove.Length] = actortoRemove;
+
+            _actorstoRemove = temp;
+        }
+        private void RemoveActors()
+        {
+            for (int i = 0; i < _actorstoRemove.Length; i++)
+            {
+                _currentScene.RemoveActor(_actorstoRemove[i]);
+            }
+            _actorstoRemove = new Actor[0];
         }
         public void Run()
         {
@@ -139,29 +165,6 @@ namespace MathForGames2025
             while (!_applicationShouldClose && !Raylib.WindowShouldClose())
             {
 
-                //Matrix3 sum = testa * testb;
-                //Console.WriteLine(sum);
-                //Console.WriteLine(            "___________\n");
-                //  Console.WriteLine(M00 + "  | " + M01 + "   | " + M02 + "\n" +
-                //                              "___________\n" +
-                //                    M10 + "  | " + M11 + "   | " + M12 + "\n" +
-                //                              "___________\n" +
-                //                    M20 + "  | " + M21 + "   | " + M22);
-                //Console.WriteLine("_________________________");
-                //Console.WriteLine("Dot Product: " + Vector2.DotProduct(test, test3));
-                //Console.WriteLine("_________________________");
-                //Console.WriteLine("Get Distance: " + Vector2.GetDistance(test, test3));
-                //Console.WriteLine("_________________________");
-                //test.Normalize();
-
-                //Console.WriteLine("Test 1 Magnitude: " + test.GetMagnitude());
-                //Console.WriteLine("_________________________");
-                //Console.WriteLine("Test 2 Magnitude: " + magnitude);
-                //Console.WriteLine("_________________________");
-
-                //Console.WriteLine("Current Time: " + currentTime);
-                //Console.WriteLine("|||||||||||||||||||||||||");
-
                 currentTime = _stopwatch.ElapsedMilliseconds / 1000.0f;
 
                 deltaTime = currentTime - lastTime;
@@ -170,7 +173,6 @@ namespace MathForGames2025
                 Update(deltaTime);
                 
                 lastTime = currentTime;
-                _currentScene.Update(deltaTime);
             }
 
             End();

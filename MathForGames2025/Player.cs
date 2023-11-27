@@ -35,16 +35,6 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-            ////_spawner.RemoveProjectile();
-            //Console.WriteLine("_________________________");
-            //Console.WriteLine("Position X:" + LocalPosition.X);
-            //Console.WriteLine("_________________________");
-            //Console.WriteLine("Position Y:" + LocalPosition.Y);
-            //Console.WriteLine("_________________________");
-            //Console.WriteLine(deltaTime);
-
-
-            //char direction = Engine.GetInput();
 
             Vector2 direction = new Vector2();
 
@@ -82,10 +72,20 @@ namespace MathForGames2025
             {
                 Rotate(-0.1f);
             }
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_ONE))
+            {
+                Scale(2, 2);
+
+            }
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_TWO))
+            {
+                Scale((float).2, (float).2);
+
+            }
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 _spawner.SpawnProjectile();
-                
+
             }
 
 
@@ -93,7 +93,7 @@ namespace MathForGames2025
             {
                 _speed = 400;
             }
-            
+
             
             Velocity = direction.GetNormalized() * _speed * deltaTime;
 

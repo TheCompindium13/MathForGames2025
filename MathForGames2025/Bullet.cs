@@ -13,6 +13,8 @@ namespace MathForGames2025
         private Vector2 _velocity;
         private float _damage;
         private CircleCollider _bulletcollider;
+        private float _despawnTime = 1.0f;
+        private float _currentTime;
         public Bullet(string spritePath, Vector2 position, Actor owner, Vector2 velocity, float damage) : base(spritePath, position)
         {
             _owner = owner;
@@ -42,6 +44,13 @@ namespace MathForGames2025
             base.Update(deltaTime);
             
             LocalPosition += _velocity * deltaTime;
+
+            _currentTime += deltaTime;
+
+            if (_currentTime >= _despawnTime)
+            {
+                Engine.RemoveActorfromScene(this);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace MathForGames2025
 {
     internal class Enemy : Character
     {
+
         private Character _target;
         private float _maxangle;
         private float _seedistance;
