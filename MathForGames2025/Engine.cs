@@ -114,7 +114,7 @@ namespace MathForGames2025
 
         }
         /// <summary>
-        /// Removes the given actor from the current scene array
+        /// Adds the actor to a list of actors to remove that is cleared after update is called
         /// </summary>
         /// <param name="actortoRemove">A reference to the actor to remove it from the scene</param>
         /// <returns></returns>
