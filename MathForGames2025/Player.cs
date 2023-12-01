@@ -23,6 +23,7 @@ namespace MathForGames2025
         }
         public override void Draw()
         {
+
             base.Draw();
 
         }
@@ -72,20 +73,28 @@ namespace MathForGames2025
             {
                 Rotate(-0.1f);
             }
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_ONE))
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_ONE) )
             {
+                if (Size.X >= 500 && Size.Y >= 500)
+                {
+                    return;
+                }
                 Scale(2, 2);
 
             }
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_TWO))
             {
+                if (Size.X < 100 && Size.Y < 100)
+                {
+                    return;
+                }
                 Scale((float).2, (float).2);
 
             }
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 _spawner.SpawnProjectile();
-
+                
             }
 
 

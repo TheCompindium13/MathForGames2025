@@ -14,6 +14,7 @@ namespace MathForGames2025
         private Player _testActor;
         private Enemy _testEnemy;
         private Enemy _testNic;
+        private Actor _testBody;
         Vector2 enemyendPosition = new Vector2(450, 800);
 
 
@@ -33,6 +34,7 @@ namespace MathForGames2025
 
             _testActor = new Player("Images/Nic.png", startPosition, 100);
             _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, 100, .3f, 100f);
+            _testBody = new Actor(_testActor, "Images/RR.png", new Vector2(-0.15f,.48f), 100);
             if (enemystartPosition.X == _testEnemy.LocalPosition.X && enemystartPosition.Y == _testEnemy.LocalPosition.Y)
             {
                 enemystartPosition = new Vector2(enemystartPosition.X, _testEnemy.LocalPosition.Y); ;
@@ -46,8 +48,9 @@ namespace MathForGames2025
             _testActor.Size = new Vector2(100, 100);
             _testEnemy.Size = new Vector2(100, 100);
             _testNic.Size = new Vector2(100, 100);
+            _testBody.Size = new Vector2(1, 1);
 
-            
+
             CircleCollider playercollider = new CircleCollider(20, _testActor);
             CircleCollider enemycollider = new CircleCollider(_testEnemy.MaxAngle, _testEnemy);
             CircleCollider niccollider = new CircleCollider(_testNic.MaxAngle, _testNic);
@@ -56,7 +59,8 @@ namespace MathForGames2025
             _testActor.AttachedCollider = playercollider;
             _testEnemy.AttachedCollider = enemycollider;
             _testNic.AttachedCollider = niccollider;
-            
+
+            AddActor(_testBody);
             AddActor(_testActor);
             AddActor(_testEnemy);
             AddActor(_testNic);
@@ -72,6 +76,7 @@ namespace MathForGames2025
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
+
             if (enemyendPosition.X == _testEnemy.WorldPosition.X && enemyendPosition.Y == _testEnemy.WorldPosition.Y && enemyendPosition.X == _testNic.WorldPosition.X && enemyendPosition.Y == _testNic.WorldPosition.Y)
             {
                 Engine.EndApplication();

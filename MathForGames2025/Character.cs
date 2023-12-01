@@ -36,8 +36,7 @@ namespace MathForGames2025
 
         public override void Draw()
         {
-            Vector2 endposition = WorldPosition + Facing * 100;
-            Raylib.DrawLine((int)WorldPosition.X, (int)WorldPosition.Y, (int)endposition.X, (int)endposition.Y, Actoricon.RaylibColor);
+            
             base.Draw();
         }
         public Character(Icon icon, Vector2 position) : base(icon, position)

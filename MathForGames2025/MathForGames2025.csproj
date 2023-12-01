@@ -25,6 +25,7 @@
     <None Remove="Images\planet08.png" />
     <None Remove="Images\planet09.png" />
     <None Remove="Images\player.png" />
+    <None Remove="Images\RR.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -77,6 +78,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\RR.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

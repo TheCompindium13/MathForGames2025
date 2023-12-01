@@ -44,6 +44,7 @@ namespace MathForGames2025
 
         public override void Draw()
         {
+
             base.Draw();
         }
 
