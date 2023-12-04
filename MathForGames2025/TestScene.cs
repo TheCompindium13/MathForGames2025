@@ -35,6 +35,9 @@ namespace MathForGames2025
             _testActor = new Player("Images/Nic.png", startPosition, 100);
             _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, 100, .3f, 100f);
             _testBody = new Actor(_testActor, "Images/RR.png", new Vector2(-0.15f,.48f), 100);
+            
+            
+            //-----------------------------------------------------------------------------------------------------------
             if (enemystartPosition.X == _testEnemy.LocalPosition.X && enemystartPosition.Y == _testEnemy.LocalPosition.Y)
             {
                 enemystartPosition = new Vector2(enemystartPosition.X, _testEnemy.LocalPosition.Y); ;
@@ -43,6 +46,7 @@ namespace MathForGames2025
             {
                 enemystartPosition = new Vector2(_testEnemy.LocalPosition.X, _testEnemy.LocalPosition.Y);
             }
+            //-----------------------------------------------------------------------------------------------------------
             _testNic = new Enemy(_testActor, "Images/nic2.0.png", nicstartPosition, 100, .3f, 100f);
 
             _testActor.Size = new Vector2(100, 100);

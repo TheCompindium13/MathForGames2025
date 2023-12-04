@@ -38,8 +38,9 @@ namespace MathForGames2025
             base.Update(deltaTime);
 
             Vector2 direction = new Vector2();
-
-
+            //------------------------------------------------------------------------------------\\
+            //Adds the new vector of to direction you want to go when you press the corrasponding key.
+            //------------------------------------------------------------------------------------\\
             if (Raylib.IsKeyDown(KeyboardKey.KEY_W) || Raylib.IsKeyDown(KeyboardKey.KEY_UP))
             {
                 direction += new Vector2(0, -1);
@@ -61,10 +62,16 @@ namespace MathForGames2025
                 direction += new Vector2(1, 0);
 
             }
+            //------------------------------------------------------------------------------------\\
+            //Sets the current speed when the Key is pressed down
+            //------------------------------------------------------------------------------------\\
             if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT_SHIFT))
             {
                 _speed = 1000;
             }
+            //------------------------------------------------------------------------------------\\
+            //Pressing the corresponding key(s) will either rotate the player left or right but they cannot be held down
+            //------------------------------------------------------------------------------------\\
             if (!Raylib.IsKeyUp(KeyboardKey.KEY_Q))
             {
                 Rotate(.1f);
@@ -73,6 +80,9 @@ namespace MathForGames2025
             {
                 Rotate(-0.1f);
             }
+            //------------------------------------------------------------------------------------\\
+            //Checks the size of the player and if it is within the set paramaters increases/decreases he size of the player
+            //------------------------------------------------------------------------------------\\
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_ONE) )
             {
                 if (Size.X >= 500 && Size.Y >= 500)
@@ -91,19 +101,20 @@ namespace MathForGames2025
                 Scale((float).2, (float).2);
 
             }
+            //------------------------------------------------------------------------------------\\
+            //Spawn a new bullet each time button is pressed.
+            //------------------------------------------------------------------------------------\\
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 _spawner.SpawnProjectile();
                 
             }
-
-
+            //------------------------------------------------------------------------------------\\
             else
             {
                 _speed = 400;
             }
-
-            
+            //------------------------------------------------------------------------------------\\
             Velocity = direction.GetNormalized() * _speed * deltaTime;
 
             Translate(Velocity.X, Velocity.Y);

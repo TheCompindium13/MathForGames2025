@@ -144,17 +144,7 @@ namespace MathForGames2025
         }
         public void Run()
         {
-            Matrix3 testa = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
-            Matrix3 testb = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-
-            Vector2 test = new Vector2(10, 10);
-
-            Vector2 test3 = new Vector2(10, 10);
-
-            Vector2 test2 = test.GetNormalized();
-
-            float magnitude = test2.GetMagnitude();
             
             Start();
             float currentTime = 0f;
