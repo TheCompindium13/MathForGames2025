@@ -45,6 +45,12 @@ namespace MathLibrary
                                0, 1, y,
                                0, 0, 1);
         }
+        /// <summary>
+        /// Creates scale through change x and y values.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public static Matrix3 CreateScale(float x, float y)
         {
             return new Matrix3(x, y, 0,
