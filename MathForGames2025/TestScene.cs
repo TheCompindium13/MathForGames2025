@@ -32,9 +32,9 @@ namespace MathForGames2025
             Icon enemyIcon = new Icon{ RaylibColor = Color.RED, Symbol = "R" };
             Icon nicIcon = new Icon{ RaylibColor = Color.BEIGE, Symbol = "NIC" };
 
-            _testActor = new Player("Images/Nic.png", startPosition, 100);
-            _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, 100, .3f, 100f);
-            _testBody = new Actor(_testActor, "Images/RR.png", new Vector2(-0.15f,.48f), 100);
+            _testActor = new Player("Images/Nic.png", startPosition);
+            _testEnemy = new Enemy(_testActor, "Images/Blackheart.png", enemystartPosition, .3f, 100f);
+            _testBody = new Actor(_testActor, "Images/RR.png", new Vector2(-0.15f,.48f));
             
             
             //-----------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ namespace MathForGames2025
                 enemystartPosition = new Vector2(_testEnemy.LocalPosition.X, _testEnemy.LocalPosition.Y);
             }
             //-----------------------------------------------------------------------------------------------------------
-            _testNic = new Enemy(_testActor, "Images/nic2.0.png", nicstartPosition, 100, .3f, 100f);
+            _testNic = new Enemy(_testActor, "Images/nic2.0.png", nicstartPosition, .3f, 100f);
 
             _testActor.Size = new Vector2(100, 100);
             _testEnemy.Size = new Vector2(100, 100);

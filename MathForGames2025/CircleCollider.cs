@@ -20,9 +20,7 @@ namespace MathForGames2025
         {
             get { return _radius; }
             set { _radius = value; }
-        }
-        //make an overrided function for checking collision with a circle
-        
+        }        
         public override bool CheckCollisionCircle(CircleCollider collider)
         {
             float distance = Vector2.GetDistance(Owner.LocalPosition, collider.Owner.WorldPosition);

@@ -29,6 +29,7 @@ namespace MathForGames2025
 
     internal class Actor
     {
+        
         private Icon _icon;
         private Actor _parent;
         private Matrix3 _globaltransform = Matrix3.Identity;
@@ -39,7 +40,6 @@ namespace MathForGames2025
         private bool _started;
         private Collider _collider;
         private Sprite _sprite;
-        private float _health;
         public Vector2 LocalPosition
         {
             get { return new Vector2(_translation.M02, _translation.M12); }
@@ -68,12 +68,12 @@ namespace MathForGames2025
             _sprite = new Sprite(spritePath);
             LocalPosition = position;
         }
-        public Actor(Actor parent, string spritePath, Vector2 position, float health)
+        public Actor(Actor parent, string spritePath, Vector2 position)
         {
             Parent = parent;
             _sprite = new Sprite(spritePath);
             LocalPosition = position;
-            _health = health;
+
         }
         public Vector2 Facing
         {

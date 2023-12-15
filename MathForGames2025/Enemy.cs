@@ -24,7 +24,7 @@ namespace MathForGames2025
             _seedistance = seedistance;
 
         }
-        public Enemy(Character target, string spritePath, Vector2 position, float health, float maxangle, float seedistance) : base(spritePath, position, health)
+        public Enemy(Character target, string spritePath, Vector2 position, float maxangle, float seedistance) : base(spritePath, position)
         {
             _target = target;
             _maxangle = maxangle;
@@ -60,7 +60,6 @@ namespace MathForGames2025
 
             float dotproduct = Vector2.DotProduct(direction, Facing);
 
-            //Console.WriteLine("Dot Product: " + dotproduct);
 
 
             Icon newicon = Actoricon;
@@ -84,19 +83,7 @@ namespace MathForGames2025
             SetScale(100,100);
             Actoricon = newicon;
 
-            //set velocity to be vector scaled by speed
-
             Velocity = direction * 100;
-
-
-
-            //(Done) The enemy should only be able to see the player if they are within a certain angle relative to the enemy's forward facing vector. 
-
-            //(Done) The ability to change the viewing angle for the enemy in radians in the constructor.
-
-            //(Done) The enemy should only be able to view the player if they are within some given distance. 
-
-            //(Done) The ability to set the max Seeing distance in the constructor.
 
             base.Update(deltaTime);
 

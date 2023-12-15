@@ -15,11 +15,16 @@ namespace MathForGames2025
         private CircleCollider _bulletcollider;
         private float _despawnTime = 1.0f;
         private float _currentTime;
-        public Bullet(string spritePath, Vector2 position, Actor owner, Vector2 velocity, float damage) : base(spritePath, position)
+        /// <param name="spritePath">the filepath of the image that is releted to the bullet</param>
+        /// <param name="position">the location of the bullet in the game scene</param>
+        /// <param name="owner"></param>
+        /// <param name="velocity">the direction that the bullet moves</param>
+
+        public Bullet(string spritePath, Vector2 position, Actor owner, Vector2 velocity) : base(spritePath, position)
         {
             _owner = owner;
             _velocity = velocity;
-            _damage = damage;
+
             _bulletcollider = new CircleCollider(20, this);
             AttachedCollider = _bulletcollider;
         }

@@ -55,16 +55,31 @@
             return new Vector2(X / Magnitude, Y / Magnitude);
             
         }
+        /// <summary>
+        /// Returns the dot product of the two vectors given.
+        /// </summary>
+        /// <param name="a">the first variables x and y value</param>
+        /// <param name="b">the second variables x and y value</param>
+        /// <returns></returns>
         public static float DotProduct(Vector2 a, Vector2 b)
         {
             float dot = a.X * b.X + a.Y * b.Y;
             return dot;
         }
-
+        /// <summary>
+        /// the distance between Vector(s) a and b
+        /// </summary>
+        /// <param name="a">the first variables x and y value</param>
+        /// <param name="b">the second variables x and y value</param>
+        /// <returns></returns>
         public static float GetDistance(Vector2 a, Vector2 b)
         {
             return (a - b).GetMagnitude();
         }
+        /// <summary>
+        /// Returns the length of the vector.
+        /// </summary>
+        /// <returns></returns>
         public float GetMagnitude()
         {
             return MathF.Sqrt(X * X + Y * Y);

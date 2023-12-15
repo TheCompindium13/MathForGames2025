@@ -16,7 +16,7 @@ namespace MathForGames2025
         private const int _screenwidth = 800;
         private const int _screenheight = 450;
         private static bool _applicationShouldClose;
-        private static Icon[,] _buffer;
+
         private static Scene _currentScene;
         private static Actor[] _actorstoRemove = new Actor[0]; 
         string M00 = Matrix3.Identity.M00.ToString(); string M01 = Matrix3.Identity.M01.ToString(); string M02 = Matrix3.Identity.M02.ToString();
@@ -38,14 +38,13 @@ namespace MathForGames2025
 
         private Stopwatch _stopwatch = new Stopwatch();
         
-        private int[] _original = new int[] { 1, 2, 3 };
         private void Start()
         {
             Raylib.InitWindow(_screenwidth, _screenheight, "MATH FOR GAMES 2025");
             Raylib.SetTargetFPS(200);
             _stopwatch.Start();
             _currentScene = new TestScene();
-            _buffer = new Icon[10, 10];
+
 
             _currentScene.Start();
             
@@ -54,6 +53,8 @@ namespace MathForGames2025
         {
             return _currentScene;
         }
+        /// <param name="icon">The image that is on screen</param>
+        /// <param name="position">the location of the thing being rendered</param>
         public static void Render(Icon icon, Vector2 position)
         {
             Raylib.DrawText(icon.Symbol, (int)position.X, (int)position.Y, 50, icon.RaylibColor);
@@ -124,8 +125,9 @@ namespace MathForGames2025
             {
                 _actorstoRemove = new Actor[0];
             }
+            //Create a new array with a size one greater than our old array
             Actor[] temp = new Actor[_actorstoRemove.Length + 1];
-
+            //Copy values from the old array to the new array except the actor to delete
             for (int i = 0; i < _actorstoRemove.Length; i++)
             {
                 temp[i] = _actorstoRemove[i];

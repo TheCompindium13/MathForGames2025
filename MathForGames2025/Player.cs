@@ -16,7 +16,7 @@ namespace MathForGames2025
         {
             
         }
-        public Player(string spritePath, Vector2 position, float heath) : base(spritePath, position, heath) 
+        public Player(string spritePath, Vector2 position) : base(spritePath, position) 
         {
             _spawner = new ProjectileSpawner(new Vector2(1, 0), this, 50, "Images/bullet.png");
 
