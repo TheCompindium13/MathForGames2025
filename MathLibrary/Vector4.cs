@@ -42,6 +42,9 @@ namespace MathLibrary
             _z = z;
             _w = w;
         }
+        /// <summary>
+        /// Returns the cross product of the two vectors given.
+        /// </summary>
         public static Vector4 CrossProduct(Vector4 a, Vector4 b)
         {
 
@@ -83,17 +86,25 @@ namespace MathLibrary
             return new Vector4(X / Magnitude, Y / Magnitude, Z / Magnitude,W);
 
         }
+        /// <summary>
+        /// Returns the dot product of the two vectors given.
+        /// </summary>
         public static float DotProduct(Vector4 a, Vector4 b)
         {
 
             float dot = a.X * b.X + a.Y * b.Y + a.Z * b.Z + a.W * b.W; 
             return dot;
         }
-
+        /// <summary>
+        /// Returns the difference of the two vectors given.
+        /// </summary>
         public static float GetDistance(Vector4 a, Vector4 b)
         {
             return (a - b).GetMagnitude();
         }
+        /// <summary>
+        /// Returns the length of the vector.
+        /// </summary>
         public float GetMagnitude()
         {
             return MathF.Sqrt(X * X + Y * Y + Z * Z);

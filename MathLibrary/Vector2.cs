@@ -55,16 +55,25 @@
             return new Vector2(X / Magnitude, Y / Magnitude);
             
         }
+        /// <summary>
+        /// Returns the dot product of the two vectors given.
+        /// </summary>
         public static float DotProduct(Vector2 a, Vector2 b)
         {
             float dot = a.X * b.X + a.Y * b.Y;
             return dot;
         }
-
+        /// <summary>
+        /// Returns the difference of the two vectors given.
+        /// </summary>
         public static float GetDistance(Vector2 a, Vector2 b)
         {
             return (a - b).GetMagnitude();
         }
+        /// <summary>
+        /// Returns the length of the vector.
+        /// </summary>
+        /// <returns></returns>
         public float GetMagnitude()
         {
             return MathF.Sqrt(X * X + Y * Y);

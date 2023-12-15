@@ -38,6 +38,10 @@ namespace MathLibrary
                                    0.0f, 0.0f, 0.0f, 1.0f);
             }
         }
+        /// <summary>
+        /// Creates a matrix thats been rotated by the given amount of radians on the x axis.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix4 CreateRotationX(float radians)
         {
             return new Matrix4(1.0f,                     0.0f,                     0.0f,  0.0f,
@@ -45,6 +49,10 @@ namespace MathLibrary
                                0.0f, (float)Math.Sin(radians), (float)Math.Cos(radians), 0.0f,
                                0.0f,                      0.0f,                     0.0f, 1.0f);
         }
+        /// <summary>
+        /// Creates a matrix thats been rotated by the given amount of radians on the y axis.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix4 CreateRotationY(float radians)
         {
             return new Matrix4((float)Math.Cos(radians), 0.0f, (float)Math.Sin(radians), 0.0f,
@@ -52,6 +60,10 @@ namespace MathLibrary
                                (float)Math.Sin(-radians), 0.0f, (float)Math.Cos(radians),  0.0f,
                                0.0f,               0.0f, 0.0f, 1.0f);
         }
+        /// <summary>
+        /// Creates a matrix thats been rotated by the given amount of radians on the z axis.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix4 CreateRotationZ(float radians)
         {
             return new Matrix4((float)Math.Cos(radians), (float)Math.Sin(-radians), 0.0f, 0.0f,
@@ -59,6 +71,12 @@ namespace MathLibrary
                                0.0f, 0.0f, 1.0f, 0.0f,
                                0.0f, 0.0f, 0.0f, 1.0f);
         }
+
+        /// <summary>
+        /// Creates a matrix thats been rotated by the given amount of radians
+        ///on the y axis.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix4 CreateTranslation(float x, float y,float z)
         {
             return new Matrix4(1, 0, 0, x,
@@ -66,6 +84,10 @@ namespace MathLibrary
                                0, 0, 1, z,
                                0, 0, 0, 1);
         }
+        /// <summary>
+        /// Creates a matrix thats been scaled by the given vector.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix4 CreateScale(float x, float y, float z)
         {
             return new Matrix4(x, 0, 0, 0,

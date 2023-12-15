@@ -33,23 +33,32 @@ namespace MathLibrary
                                    0.0f, 0.0f, 1.0f); 
             }
         }
+        /// <summary>
+        /// Creates a matrix thats been rotated by the given amount of radians on the z axis.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix3 CreateRotation(float radians)
         {
             return new Matrix3((float)Math.Cos(radians),(float)Math.Sin(-radians),0, 
                                (float)Math.Sin(radians),(float)Math.Cos(radians), 0,
                                 0,                     0,                         1);
         }
+        /// <summary>
+        /// Creates a matrix thats been rotated by the given amount of radians
+        ///on the y axis.
+        /// </summary>
+        /// <returns></returns>
         public static Matrix3 CreateTranslation(float x, float y)
         {
             return new Matrix3(1, 0, x,
                                0, 1, y,
                                0, 0, 1);
+
         }
+
         /// <summary>
-        /// Creates scale through change x and y values.
+        /// Creates a matrix thats been scaled by the given vector.
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
         /// <returns></returns>
         public static Matrix3 CreateScale(float x, float y)
         {
