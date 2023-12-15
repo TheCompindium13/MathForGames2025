@@ -19,9 +19,7 @@ namespace MathForGames2025
 
         private static Scene _currentScene;
         private static Actor[] _actorstoRemove = new Actor[0]; 
-        string M00 = Matrix3.Identity.M00.ToString(); string M01 = Matrix3.Identity.M01.ToString(); string M02 = Matrix3.Identity.M02.ToString();
-        string M10 = Matrix3.Identity.M10.ToString(); string M11 = Matrix3.Identity.M11.ToString(); string M12 = Matrix3.Identity.M12.ToString();
-        string M20 = Matrix3.Identity.M20.ToString(); string M21 = Matrix3.Identity.M21.ToString(); string M22 = Matrix3.Identity.M22.ToString();
+
         
         public static int ScreenWidth
         {
@@ -125,7 +123,7 @@ namespace MathForGames2025
             {
                 _actorstoRemove = new Actor[0];
             }
-            //Create a new array with a size one greater than our old array
+            //Creates a new array with a size one greater than our old array
             Actor[] temp = new Actor[_actorstoRemove.Length + 1];
             //Copy values from the old array to the new array except the actor to delete
             for (int i = 0; i < _actorstoRemove.Length; i++)

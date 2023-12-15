@@ -63,11 +63,17 @@ namespace MathForGames2025
             get { return _parent; }
             set { _parent = value; }
         }
+
+        /// <param name="spritePath">the filepath of the image that is releted to the actor</param>
+        /// <param name="position">the location of the actor in the game scene</param>
         public Actor(string spritePath, Vector2 position)
         {
             _sprite = new Sprite(spritePath);
             LocalPosition = position;
         }
+        /// <param name="parent">the class that this object is connected to</param>
+        /// <param name="spritePath">the filepath of the image that is releted to the actor</param>
+        /// <param name="position">the location of the actor in the game scene</param>
         public Actor(Actor parent, string spritePath, Vector2 position)
         {
             Parent = parent;
@@ -75,11 +81,13 @@ namespace MathForGames2025
             LocalPosition = position;
 
         }
+        //the direction the  actor is currently facing
         public Vector2 Facing
         {
             get { return new Vector2(_globaltransform.M00, _localtransform.M01).GetNormalized(); }
 
         }
+        //how large the actors scale is
         public Vector2 Size
         {
             get
@@ -94,6 +102,7 @@ namespace MathForGames2025
 
             }
         }
+        
         public Matrix3 LocalTransform
         {
             get { return _localtransform; }
@@ -183,12 +192,22 @@ namespace MathForGames2025
         {
             _translation = Matrix3.CreateTranslation(x,y);
         }
+
+        /// <summary>
+        /// Creates a matrix thats been scaled by the given vector.
+        /// </summary>
+        /// <returns></returns>
         public void Scale(float x, float y)
         {
             _scale *= Matrix3.CreateScale(x, y);
 
 
         }
+
+        /// <summary>
+        /// Sets a matrix to be scaled by the given vector.
+        /// </summary>
+        /// <returns></returns>
         public void SetScale(float x, float y)
         {
             _scale = Matrix3.CreateScale(x, y);

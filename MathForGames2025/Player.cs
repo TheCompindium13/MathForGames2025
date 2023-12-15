@@ -16,6 +16,8 @@ namespace MathForGames2025
         {
             
         }
+        /// <param name="spritePath">the filepath of the image that is releted to the player</param>
+        /// <param name="position">the location of the player in the game scene</param>
         public Player(string spritePath, Vector2 position) : base(spritePath, position) 
         {
             _spawner = new ProjectileSpawner(new Vector2(1, 0), this, 50, "Images/bullet.png");

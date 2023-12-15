@@ -13,7 +13,6 @@ namespace MathForGames2025
         private float _projectilespeed;
         private string _projectilespritePath;
 
-        //private Bullet bullet;
         /// <param name="position">The position of this spawner in relation to its parent</param>
         /// <param name="owner">The owner for this spawner and for each projectile</param>
         /// <param name="projectilespeed">The speed of projectiles emitted from this spawner</param>

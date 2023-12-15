@@ -17,7 +17,7 @@ namespace MathForGames2025
         private float _currentTime;
         /// <param name="spritePath">the filepath of the image that is releted to the bullet</param>
         /// <param name="position">the location of the bullet in the game scene</param>
-        /// <param name="owner"></param>
+        /// <param name="owner">the class that this object is connected to</param>
         /// <param name="velocity">the direction that the bullet moves</param>
 
         public Bullet(string spritePath, Vector2 position, Actor owner, Vector2 velocity) : base(spritePath, position)

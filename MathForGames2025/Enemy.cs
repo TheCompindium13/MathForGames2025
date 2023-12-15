@@ -17,13 +17,12 @@ namespace MathForGames2025
         private float _maxangle;
         private float _seedistance;
 
-        public Enemy(Character target, Icon icon, Vector2 position, float maxangle, float seedistance) : base(icon, position)
-        {
-            _target = target;
-            _maxangle = maxangle;
-            _seedistance = seedistance;
 
-        }
+        /// <param name="target">The opposeing force of the enemy</param>
+        /// <param name="spritePath">the filepath of the image that is releted to the enemy</param>
+        /// <param name="position">the location of the enemy in the game scene</param>
+        /// <param name="maxangle">the max angle of the enemies cone of vison</param>
+        /// <param name="seedistance">how far the enemy can see ahead of itself</param>
         public Enemy(Character target, string spritePath, Vector2 position, float maxangle, float seedistance) : base(spritePath, position)
         {
             _target = target;
@@ -31,11 +30,17 @@ namespace MathForGames2025
             _seedistance = seedistance;
             
         }
+        /// <summary>
+        /// the max angle of the enemies cone of vison
+        /// </summary>
         public float MaxAngle
         {
             get { return _maxangle; }
             set { _maxangle = value; }
         }
+        /// <summary>
+        /// how far the enemy can see ahead of itself
+        /// </summary>
         public float SeeDistance
         {
             get { return _seedistance; }
@@ -53,7 +58,7 @@ namespace MathForGames2025
 
 
 
-            //vector = enemy to target
+            //vector subtracts the targets current position from the enemies current position
             Vector2 enemytotarget = _target.WorldPosition - WorldPosition; 
             //normalise vector
             Vector2 direction = enemytotarget.GetNormalized();
